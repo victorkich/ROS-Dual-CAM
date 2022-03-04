@@ -31,7 +31,7 @@ def camPreview(previewName, camID):
     while rval:
         # cv2.imshow(previewName, frame)
         rval, frame = cam.read()
-        frame = bridge.cv2_to_imgmsg(frame, desired_encoding='passthrough')
+        frame = bridge.cv2_to_imgmsg(frame)
         pub_image.publish(frame)
         #key = cv2.waitKey(20)
         #if key == 27:  # exit on ESC
