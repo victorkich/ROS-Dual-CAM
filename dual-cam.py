@@ -21,7 +21,6 @@ class camThread(threading.Thread):
 def camPreview(previewName, camID):
     # cv2.namedWindow(previewName)
     pub_image = rospy.Publisher('/usb_cam/image_raw_{}'.format(camID), Image, queue_size=1)
-
     cam = cv2.VideoCapture(camID)
     if cam.isOpened():
         rval, frame = cam.read()
@@ -39,6 +38,7 @@ def camPreview(previewName, camID):
     #cv2.destroyWindow(previewName)
 
 
+rospy.init_node('cameras')
 bridge = CvBridge()
 # Create two threads as follows
 thread1 = camThread("Camera 1", 0)
