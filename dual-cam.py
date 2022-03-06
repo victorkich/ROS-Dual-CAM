@@ -45,7 +45,7 @@ def camPreview(camID):
 
 rospy.init_node('camera_processing')
 bridge = CvBridge()
-defisheye = Defisheye(dtype='linear', format='fullframe', fov=100, pfov=140)
+defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
 # Create two threads as follows
 # thread1 = camThread(camID=0)
 # thread2 = camThread(camID=2)
