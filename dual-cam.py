@@ -5,6 +5,7 @@ import cv2
 import threading
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
+import time
 
 
 class camThread(threading.Thread):
@@ -20,18 +21,24 @@ class camThread(threading.Thread):
 
 def camPreview(previewName, camID):
     # cv2.namedWindow(previewName)
-    pub_image = rospy.Publisher('/usb_cam/image_raw_{}'.format(camID), Image, queue_size=1)
+    pub_image = rospy.Publisher('/usb_cam/image_raw_{}'.format(camID), Image, queue_size=30)
     cam = cv2.VideoCapture(camID)
+    cam.set(cv2.CAP_PROP_BUFFERSIZE, 2)
+    cam.set(cv2.CAP_PROP_FPS, 30)
+    cam.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
     if cam.isOpened():
         rval, frame = cam.read()
     else:
         rval = False
 
     while rval:
+        start = time.time()
         # cv2.imshow(previewName, frame)
         rval, frame = cam.read()
         frame = bridge.cv2_to_imgmsg(frame)
         pub_image.publish(frame)
+        fps = round(1 / (time.time() - start), 2)
+        print('FPS:', fps)
         #key = cv2.waitKey(20)
         #if key == 27:  # exit on ESC
         #    break
