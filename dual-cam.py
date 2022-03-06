@@ -71,8 +71,8 @@ while rval1 and rval2:
     start = time.time()
     rval1, frame1 = cam1.read()
     rval2, frame2 = cam2.read()
-    frame1 = defisheye.convert(frame1)[:, 100:]
-    frame2 = defisheye.convert(frame2)[:, :-100]
+    frame1 = defisheye.convert(frame1)[50:, 150:]
+    frame2 = defisheye.convert(frame2)[25:-25, :-200]
     frame = cv2.hconcat([frame1, frame2])
     frame = bridge.cv2_to_imgmsg(frame)
     pub_image.publish(frame)
