@@ -39,4 +39,4 @@ while key != 'q':
     test_local.step()
     key = cv2.waitKey(1)
     rate = rospy.Rate(60)
-    time.sleep(rate)
+    rate.sleep()
