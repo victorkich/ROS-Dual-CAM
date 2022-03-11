@@ -76,7 +76,7 @@ while rval1 and rval2:
     frame1 = defisheye.convert(frame1)[50:, 130:]
     frame2 = defisheye.convert(frame2)[25:-25, :-130]
     frame = cv2.hconcat([frame1, frame2])
-    compressed_frame.header = header
+    # compressed_frame.header = header
     compressed_frame.data = frame.tostring()
     compressed_frame.format = "jpeg"
     # frame = bridge.cv2_to_imgmsg(frame)
