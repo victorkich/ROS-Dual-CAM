@@ -29,7 +29,7 @@ class TestLocal:
         frame = cv2.hconcat([self.image_left, self.image_right])
         cv2.imshow('Frame', frame)
         fps = round(1 / (time.time() - start), 1)
-        print('FPS:', fps)
+        print('\rFPS:', fps)
 
 
 rospy.init_node('test_local')
