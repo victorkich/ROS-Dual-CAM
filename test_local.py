@@ -10,16 +10,32 @@ import time
 bridge = CvBridge()
 
 
-def image_callback(msg):
-    start = time.time()
-    image = bridge.compressed_imgmsg_to_cv2(msg)
-    cv2.imshow('Frame', image)
-    fps = round(1 / (time.time() - start), 1)
-    print('FPS:', fps)
-    _ = cv2.waitKey(1)
+class TestLocal:
+    def __init__(self):
+        self.image_right = None
+        self.image_left = None
+        rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback)
+        rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
+
+    def image_right_callback(self, msg):
+        self.image_right = bridge.compressed_imgmsg_to_cv2(msg)
+
+    def image_left_callback(self, msg):
+        self.image_right = bridge.compressed_imgmsg_to_cv2(msg)
+
+    def step(self):
+        start = time.time()
+        frame = cv2.hconcat([self.image_left, self.image_right])
+        cv2.imshow('Frame', frame)
+        fps = round(1 / (time.time() - start), 1)
+        print('FPS:', fps)
 
 
 rospy.init_node('test_local')
-pub_image = rospy.Subscriber('/usb_cam/compressed/compressed_image', CompressedImage, image_callback)
-rospy.Rate(60)
-rospy.spin()
+test_local = TestLocal()
+key = cv2.waitKey(1)
+while key != 'q':
+    test_local.step()
+    key = cv2.waitKey(1)
+    rospy.Rate(60)
+    rospy.spin()
