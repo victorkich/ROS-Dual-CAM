@@ -25,6 +25,7 @@ class TestLocal:
 
     def step(self):
         start = time.time()
+        print([self.image_left, self.image_right])
         frame = cv2.hconcat([self.image_left, self.image_right])
         cv2.imshow('Frame', frame)
         fps = round(1 / (time.time() - start), 1)
