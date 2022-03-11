@@ -13,8 +13,8 @@ class TestLocal:
         self.bridge = CvBridge()
         self.image_right = None
         self.image_left = None
-        self.img1 = rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback)
-        self.img2 = rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
+        rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback)
+        rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
 
     def image_right_callback(self, msg):
         self.image_right = self.bridge.compressed_imgmsg_to_cv2(msg)
@@ -23,6 +23,7 @@ class TestLocal:
         self.image_left = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
+        print(self.image_left)
         if self.image_right is None or self.image_left is None:
             time.sleep(0.1)
             return
