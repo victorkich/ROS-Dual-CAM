@@ -2,7 +2,6 @@
 
 import rospy
 import cv2
-import threading
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from utils.defisheye import Defisheye
