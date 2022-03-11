@@ -24,6 +24,8 @@ class TestLocal:
         self.image_right = bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
+        if self.image_right is None or self.image_left is None:
+            return
         start = time.time()
         frame = cv2.hconcat([self.image_left, self.image_right])
         cv2.imshow('Frame', frame)
@@ -35,8 +37,6 @@ rospy.init_node('test_local')
 test_local = TestLocal()
 key = cv2.waitKey(1)
 while key != 'q':
-    if test_local.image_right is None or test_local.image_left is None:
-        continue
     test_local.step()
     key = cv2.waitKey(1)
     rospy.Rate(60)
