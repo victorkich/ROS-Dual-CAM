@@ -7,24 +7,22 @@ from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
 import time
 
-bridge = CvBridge()
-
 
 class TestLocal:
     def __init__(self):
+        self.bridge = CvBridge()
         self.image_right = None
         self.image_left = None
         rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback)
         rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
 
     def image_right_callback(self, msg):
-        self.image_right = bridge.compressed_imgmsg_to_cv2(msg)
+        self.image_right = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def image_left_callback(self, msg):
-        self.image_right = bridge.compressed_imgmsg_to_cv2(msg)
+        self.image_left = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
-        print(len(self.image_right), len(self.image_left))
         if self.image_right is None or self.image_left is None:
             return
         start = time.time()
