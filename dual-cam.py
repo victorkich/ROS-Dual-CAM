@@ -72,7 +72,7 @@ while rval1 and rval2:
     start = time.time()
     rval1, frame1 = cam1.read()
     rval2, frame2 = cam2.read()
-    header = frame1.header
+    # header = frame1.header
     frame1 = defisheye.convert(frame1)[50:, 130:]
     frame2 = defisheye.convert(frame2)[25:-25, :-130]
     frame = cv2.hconcat([frame1, frame2])
