@@ -11,12 +11,6 @@ import time
 rospy.init_node('camera_processing')
 bridge = CvBridge()
 defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
-# Create two threads as follows
-# thread1 = camThread(camID=0)
-# thread2 = camThread(camID=2)
-# thread1.start()
-# thread2.start()
-
 pub_image = rospy.Publisher('/usb_cam/image_raw', Image, queue_size=1)
 cam1 = cv2.VideoCapture(0)
 cam1.set(cv2.CAP_PROP_BUFFERSIZE, 2)
