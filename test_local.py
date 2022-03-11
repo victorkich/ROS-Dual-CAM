@@ -24,6 +24,7 @@ class TestLocal:
         self.image_right = bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
+        print(len(self.image_right), len(self.image_left))
         if self.image_right is None or self.image_left is None:
             return
         start = time.time()
