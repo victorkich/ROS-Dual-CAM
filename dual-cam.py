@@ -4,7 +4,7 @@ import rospy
 import cv2
 import threading
 from cv_bridge import CvBridge
-from sensor_msgs.msg import CompressedImage
+from sensor_msgs.msg import Image
 from utils.defisheye import Defisheye
 import time
 
@@ -52,7 +52,7 @@ defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
 # thread1.start()
 # thread2.start()
 
-pub_image = rospy.Publisher('/usb_cam/image_raw', CompressedImage, queue_size=1)
+pub_image = rospy.Publisher('/usb_cam/image_raw', Image, queue_size=1)
 cam1 = cv2.VideoCapture(0)
 cam1.set(cv2.CAP_PROP_BUFFERSIZE, 2)
 cam1.set(cv2.CAP_PROP_FPS, 30)
