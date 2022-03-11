@@ -33,7 +33,7 @@ while rval1 and rval2:
     frame2 = defisheye.convert(frame2)[25:-25, :-130]
     frame = cv2.hconcat([frame1, frame2])
     frame = bridge.cv2_to_imgmsg(frame)
-    pub_image.publish(compressed_frame)
+    pub_image.publish(frame)
     fps = round(1 / (time.time() - start), 1)
     print('FPS:', fps)
     # key = cv2.waitKey(1)
