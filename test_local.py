@@ -18,6 +18,7 @@ def image_callback(msg):
     print('FPS:', fps)
 
 
+rospy.init_node('test_local')
 pub_image = rospy.Subscriber('/usb_cam/compressed/compressed_image', CompressedImage, image_callback)
 rospy.Rate(60)
 rospy.spin()
