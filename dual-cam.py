@@ -56,11 +56,11 @@ pub_image = rospy.Publisher('/usb_cam/image_raw', CompressedImage, queue_size=1)
 cam1 = cv2.VideoCapture(0)
 cam1.set(cv2.CAP_PROP_BUFFERSIZE, 2)
 cam1.set(cv2.CAP_PROP_FPS, 30)
-cam1.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+# cam1.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
 cam2 = cv2.VideoCapture(2)
 cam2.set(cv2.CAP_PROP_BUFFERSIZE, 2)
 cam2.set(cv2.CAP_PROP_FPS, 30)
-cam2.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+# cam2.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
 if cam1.isOpened() and cam2.isOpened():
     rval1, frame1 = cam1.read()
     rval2, frame2 = cam2.read()
@@ -72,17 +72,13 @@ while rval1 and rval2:
     start = time.time()
     rval1, frame1 = cam1.read()
     rval2, frame2 = cam2.read()
-    # header = frame1.header
     frame1 = defisheye.convert(frame1)[50:, 130:]
     frame2 = defisheye.convert(frame2)[25:-25, :-130]
     frame = cv2.hconcat([frame1, frame2])
-    # compressed_frame.header = header
-    compressed_frame.data = frame.tostring()
-    compressed_frame.format = "jpeg"
-    # frame = bridge.cv2_to_imgmsg(frame)
+    frame = bridge.cv2_to_imgmsg(frame)
     pub_image.publish(compressed_frame)
     fps = round(1 / (time.time() - start), 1)
     print('FPS:', fps)
-    key = cv2.waitKey(1)
-    if key == 27:  # exit on ESC
-        break
+    # key = cv2.waitKey(1)
+    # if key == 27:  # exit on ESC
+    #    break
