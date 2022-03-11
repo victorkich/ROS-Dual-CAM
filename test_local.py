@@ -40,5 +40,5 @@ key = cv2.waitKey(1)
 while key != 'q':
     test_local.step()
     key = cv2.waitKey(1)
-    rospy.Rate(60)
+    # rospy.Rate(60)
     rospy.spin()
