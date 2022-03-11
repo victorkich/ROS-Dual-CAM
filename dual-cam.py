@@ -25,7 +25,6 @@ if cam1.isOpened() and cam2.isOpened():
 else:
     rval1 = rval2 = False
 
-compressed_frame = CompressedImage()
 while rval1 and rval2:
     start = time.time()
     rval1, frame1 = cam1.read()
