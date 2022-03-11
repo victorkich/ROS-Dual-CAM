@@ -24,6 +24,7 @@ class TestLocal:
 
     def step(self):
         if self.image_right is None or self.image_left is None:
+            time.sleep(0.1)
             return
         start = time.time()
         frame = cv2.hconcat([self.image_left, self.image_right])
