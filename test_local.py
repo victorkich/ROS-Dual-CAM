@@ -15,6 +15,7 @@ def image_callback(msg):
     # np_arr = np.fromstring(ros_data.data, np.uint8)
     # image_np = cv2.imdecode(np_arr, 1)
     image = bridge.compressed_imgmsg_to_cv2(msg)
+    image = cv2.imdecode(image, 1)
     print(image)
     cv2.imshow('Frame', image)
     fps = round(1 / (time.time() - start), 1)
