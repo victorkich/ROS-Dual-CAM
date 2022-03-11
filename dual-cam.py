@@ -10,7 +10,7 @@ import time
 rospy.init_node('camera_processing')
 bridge = CvBridge()
 defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
-pub_image = rospy.Publisher('/usb_cam/image_raw', CompressedImage, queue_size=1)
+pub_image = rospy.Publisher('/usb_cam/compressed/compressed_image', CompressedImage, queue_size=1)
 cam1 = cv2.VideoCapture(0)
 # cam1.set(cv2.CAP_PROP_BUFFERSIZE, 2)
 cam1.set(cv2.CAP_PROP_FPS, 30)
