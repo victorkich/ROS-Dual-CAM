@@ -35,6 +35,8 @@ rospy.init_node('test_local')
 test_local = TestLocal()
 key = cv2.waitKey(1)
 while key != 'q':
+    if test_local.image_right is None and test_local.image_left is None:
+        continue
     test_local.step()
     key = cv2.waitKey(1)
     rospy.Rate(60)
