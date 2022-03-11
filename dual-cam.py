@@ -27,6 +27,6 @@ while rval1 and rval2:
     frame1 = bridge.cv2_to_compressed_imgmsg(frame1)
     frame2 = bridge.cv2_to_compressed_imgmsg(frame2)
     pub_image.publish(frame1)
-    pub_image.publish(frame2)
+    pub_image2.publish(frame2)
     fps = round(1 / (time.time() - start), 1)
     print('FPS:', fps)
