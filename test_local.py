@@ -40,7 +40,9 @@ class TestLocal(threading.Thread):
 
 
 rospy.init_node('test_local')
+finish = False
 test_local = TestLocal()
+test_local.daemon = True
 test_local.start()
 key = cv2.waitKey(1)
 while key != 'q':
