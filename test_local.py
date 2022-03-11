@@ -12,7 +12,10 @@ bridge = CvBridge()
 
 def image_callback(msg):
     start = time.time()
-    image = bridge.compressed_imgmsg_to_cv2(msg.data)
+    # np_arr = np.fromstring(ros_data.data, np.uint8)
+    # image_np = cv2.imdecode(np_arr, 1)
+    image = bridge.compressed_imgmsg_to_cv2(msg)
+    print(image)
     cv2.imshow('Frame', image)
     fps = round(1 / (time.time() - start), 1)
     print('FPS:', fps)
