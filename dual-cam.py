@@ -42,8 +42,7 @@ cam2.set(cv2.CAP_PROP_BUFFERSIZE, 10)
 cam_cleaner1 = CameraBufferCleanerThread(cam1)
 cam_cleaner2 = CameraBufferCleanerThread(cam2)
 
-key = cv2.waitKey(1)
-while key != ord('q'):
+while not rospy.is_shutdown():
     start = time.time()
     if cam_cleaner1.last_frame is not None:
         frame1 = cam_cleaner1.last_frame
@@ -57,4 +56,3 @@ while key != ord('q'):
 
     fps = round(1 / (time.time() - start), 1)
     print('FPS:', fps)
-    key = cv2.waitKey(1)
