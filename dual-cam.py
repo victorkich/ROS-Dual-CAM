@@ -34,4 +34,3 @@ while not rospy.is_shutdown():
     pub_image2.publish(frame2)
     fps = round(1 / (time.time() - start), 1)
     print('FPS:', fps)
-    rospy.spin()
