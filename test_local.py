@@ -30,12 +30,10 @@ class TestLocal:
             return False
         images = [self.image_left, self.image_right]
         stitcher = cv2.createStitcher() if imutils.is_cv3() else cv2.Stitcher_create()
-        test = stitcher.stitch(images)
-        print('Test:', test)
-        #print('Status:', status)
-        #print('Frame:', frame)
-        # frame = cv2.hconcat([self.image_left, self.image_right])
-        #cv2.imshow('Frame', frame)
+        (status, frame) = stitcher.stitch(images)
+        if status == 0:
+            # frame = cv2.hconcat([self.image_left, self.image_right])
+            cv2.imshow('Frame', frame)
         return True
 
 
