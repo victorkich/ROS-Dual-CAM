@@ -5,20 +5,20 @@ import cv2
 from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
-import utils.panorama as Panorama
+from utils.panorama import Stitcher
 import time
 
 
 class TestLocal:
     def __init__(self):
         self.bridge = CvBridge()
+        self.stitcher = Stitcher()
         self.image_right = None
         self.image_left = None
-        self.stitcher = Panorama.Stitcher()
         self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
         self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
-        rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback, queue_size=10)
-        rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback, queue_size=10)
+        rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback, queue_size=1)
+        rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback, queue_size=1)
 
     def image_right_callback(self, msg):
         self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
