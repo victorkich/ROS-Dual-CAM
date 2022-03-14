@@ -22,18 +22,16 @@ class TestLocal:
 
     def image_right_callback(self, msg):
         self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
-        # self.image_right = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def image_left_callback(self, msg):
         self.image_left = self.defisheye2.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
-        # self.image_left = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
         if self.image_right is None or self.image_left is None:
             return False
         frame = self.stitcher.stitch([self.image_left, self.image_right])
-        #size = frame.shape
-        #frame = frame[round(size[0]*0.08):round(size[0]*0.88), round(size[1]*0.13):round(size[1]*0.5)]
+        size = frame.shape
+        frame = frame[round(size[0]*0.08):round(size[0]*0.88), round(size[1]*0.13):round(size[1]*0.5)]
         cv2.imshow('Frame', frame)
         return True
 
