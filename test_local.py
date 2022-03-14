@@ -28,6 +28,7 @@ class TestLocal:
 
     def step(self):
         if self.image_right is None or self.image_left is None:
+            print('Doido')
             return False
         frame = self.stitcher.stitch([self.image_left, self.image_right])
         size = frame.shape
