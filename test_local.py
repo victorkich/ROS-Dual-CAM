@@ -17,7 +17,6 @@ class TestLocal:
         self.image_left = None
         self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
         self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
-        self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
         rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage,  self.image_right_callback, tcp_nodelay=True, queue_size=1)
         rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback, tcp_nodelay=True, queue_size=1)
 
