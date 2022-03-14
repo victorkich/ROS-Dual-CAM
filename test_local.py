@@ -34,7 +34,7 @@ class TestLocal:
         # images = [self.image_left, self.image_right]
         frame = self.stitcher.stitch([self.image_left, self.image_right])
         size = frame.shape
-        frame = frame[round(size[0]*0.05):round(size[0]*0.93), round(size[1]*0.1):round(size[1]*0.5)]
+        frame = frame[round(size[0]*0.08):round(size[0]*0.88), round(size[1]*0.15):round(size[1]*0.5)]
         cv2.imshow('Frame', frame)
         return True
 
@@ -42,7 +42,7 @@ class TestLocal:
 rospy.init_node('test_local')
 test_local = TestLocal()
 key = cv2.waitKey(1)
-while key != 'q':
+while key != ord('q'):
     start = time.time()
     val = test_local.step()
     if not val:
