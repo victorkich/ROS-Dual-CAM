@@ -12,7 +12,7 @@ pub_image = rospy.Publisher('/usb_cam/compressed/image_left', CompressedImage, q
 pub_image2 = rospy.Publisher('/usb_cam/compressed/image_right', CompressedImage, queue_size=1)
 cam1 = cv2.VideoCapture(0, cv2.CAP_V4L)
 cam1.set(cv2.CAP_PROP_FPS, 59)
-cam2 = cv2.VideoCapture(2, cv2.CAP_V4L)
+cam2 = cv2.VideoCapture(3, cv2.CAP_V4L)
 cam2.set(cv2.CAP_PROP_FPS, 59)
 if cam1.isOpened() and cam2.isOpened():
     rval1, frame1 = cam1.read()
