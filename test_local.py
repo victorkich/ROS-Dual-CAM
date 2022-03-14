@@ -20,10 +20,12 @@ class TestLocal:
         rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
 
     def image_right_callback(self, msg):
-        self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
+        # self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
+        self.image_right = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def image_left_callback(self, msg):
-        self.image_left = self.defisheye2.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
+        # self.image_left = self.defisheye2.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
+        self.image_left = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
         if self.image_right is None or self.image_left is None:
