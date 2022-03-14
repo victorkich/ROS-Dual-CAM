@@ -25,17 +25,18 @@ class TestLocal:
     def step(self):
         if self.image_right is None or self.image_left is None:
             return
-        start = time.time()
         frame = cv2.hconcat([self.image_left, self.image_right])
         cv2.imshow('Frame', frame)
-        fps = round(1 / (time.time() - start), 1)
-        print('\rFPS:', fps)
+
 
 
 rospy.init_node('test_local')
 test_local = TestLocal()
 key = cv2.waitKey(1)
 while key != 'q':
+    start = time.time()
     test_local.step()
     key = cv2.waitKey(1)
+    fps = round(1 / (time.time() - start), 1)
+    print('\rFPS:', fps)
     time.sleep(1/60)
