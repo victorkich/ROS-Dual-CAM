@@ -47,7 +47,7 @@ class Stitcher:
 		# otherwise, we are using OpenCV 2.4.X
 		else:
 			# detect keypoints in the image
-			detector = cv2.FeatureDetector_create("SIFT")
+			detector = cv2.xfeatures2d.SIFT_create()
 			kps = detector.detect(gray)
 			# extract features from the image
 			extractor = cv2.DescriptorExtractor_create("SIFT")
