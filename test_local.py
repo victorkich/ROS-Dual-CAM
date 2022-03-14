@@ -13,7 +13,7 @@ class TestLocal:
         self.bridge = CvBridge()
         self.image_right = None
         self.image_left = None
-        self.defisheye = Defisheye(dtype='linear', format='fullframe', fov=100, pfov=90)
+        self.defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
         rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback)
         rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
 
