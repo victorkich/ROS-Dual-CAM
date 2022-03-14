@@ -13,15 +13,16 @@ class TestLocal:
         self.bridge = CvBridge()
         self.image_right = None
         self.image_left = None
-        self.defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
+        self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
+        self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
         rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback)
         rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback)
 
     def image_right_callback(self, msg):
-        self.image_right = self.defisheye.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
+        self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
 
     def image_left_callback(self, msg):
-        self.image_left = self.defisheye.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
+        self.image_left = self.defisheye2.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
 
     def step(self):
         if self.image_right is None or self.image_left is None:
