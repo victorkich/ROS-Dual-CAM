@@ -50,7 +50,7 @@ class Stitcher:
 			detector = cv2.xfeatures2d.SIFT_create()
 			kps = detector.detect(gray)
 			# extract features from the image
-			extractor = cv2.DescriptorExtractor_create("SIFT")
+			extractor = cv2.xfeatures2d.SIFT_create()
 			(kps, features) = extractor.compute(gray, kps)
 		# convert the keypoints from KeyPoint objects to NumPy
 		# arrays
