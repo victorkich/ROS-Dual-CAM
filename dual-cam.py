@@ -20,6 +20,7 @@ class CameraBufferCleanerThread(threading.Thread):
         while True:
             ret, self.last_frame = self.camera.read()
 
+
 rospy.init_node('camera_processing')
 bridge = CvBridge()
 pub_image = rospy.Publisher('/usb_cam/compressed/image_left', CompressedImage, queue_size=10)
@@ -44,13 +45,16 @@ cam_cleaner2 = CameraBufferCleanerThread(cam2)
 key = cv2.waitKey(1)
 while key != ord('q'):
     start = time.time()
-    if cam_cleaner1.last_frame is not None and cam_cleaner2.last_frame is not None:
+    if cam_cleaner1.last_frame is not None:
         frame1 = cam_cleaner1.last_frame
-        frame2 = cam_cleaner1.last_frame
         frame1 = bridge.cv2_to_compressed_imgmsg(frame1)
-        frame2 = bridge.cv2_to_compressed_imgmsg(frame2)
         pub_image.publish(frame1)
+
+    if cam_cleaner2.last_frame is not None:
+        frame2 = cam_cleaner1.last_frame
+        frame2 = bridge.cv2_to_compressed_imgmsg(frame2)
         pub_image2.publish(frame2)
-        fps = round(1 / (time.time() - start), 1)
-        print('FPS:', fps)
+
+    fps = round(1 / (time.time() - start), 1)
+    print('FPS:', fps)
     key = cv2.waitKey(1)
