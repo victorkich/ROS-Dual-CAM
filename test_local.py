@@ -5,6 +5,7 @@ import cv2
 from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
+import imutils
 import time
 
 
@@ -26,14 +27,15 @@ class TestLocal:
 
     def step(self):
         if self.image_right is None or self.image_left is None:
-            return
+            return False
         images = [self.image_left, self.image_right]
-        stitcher = cv2.Stitcher_create()
+        stitcher = cv2.createStitcher() if imutils.is_cv3() else cv2.Stitcher_create()
         (status, frame) = stitcher.stitch(images)
         print('Status:', status)
         print('Frame:', frame)
         # frame = cv2.hconcat([self.image_left, self.image_right])
         cv2.imshow('Frame', frame)
+        return True
 
 
 rospy.init_node('test_local')
@@ -41,7 +43,9 @@ test_local = TestLocal()
 key = cv2.waitKey(1)
 while key != 'q':
     start = time.time()
-    test_local.step()
+    val = test_local.step()
+    if not val:
+        continue
     key = cv2.waitKey(1)
     fps = round(1 / (time.time() - start), 1)
     print('\rFPS:', fps)
