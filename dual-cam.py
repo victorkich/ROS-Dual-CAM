@@ -4,7 +4,21 @@ import rospy
 import cv2
 from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
+import threading
 import time
+
+
+# Define the thread that will continuously pull frames from the camera
+class CameraBufferCleanerThread(threading.Thread):
+    def __init__(self, camera, name='camera-buffer-cleaner-thread'):
+        self.camera = camera
+        self.last_frame = None
+        super(CameraBufferCleanerThread, self).__init__(name=name)
+        self.start()
+
+    def run(self):
+        while True:
+            ret, self.last_frame = self.camera.read()
 
 rospy.init_node('camera_processing')
 bridge = CvBridge()
@@ -22,19 +36,21 @@ cam2.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cam2.set(cv2.CAP_PROP_FRAME_HEIGHT, 1024)
 cam2.set(cv2.CAP_PROP_FPS, 30)
 cam2.set(cv2.CAP_PROP_BUFFERSIZE, 10)
-if cam1.isOpened() and cam2.isOpened():
-    rval1, frame1 = cam1.read()
-    rval2, frame2 = cam2.read()
-else:
-    rval1 = rval2 = False
 
-while rval1 and rval2:
+# Start the cleaning thread
+cam_cleaner1 = CameraBufferCleanerThread(cam1)
+cam_cleaner2 = CameraBufferCleanerThread(cam2)
+
+key = cv2.waitKey(1)
+while key != ord('q'):
     start = time.time()
-    rval1, frame1 = cam1.read()
-    rval2, frame2 = cam2.read()
-    frame1 = bridge.cv2_to_compressed_imgmsg(frame1)
-    frame2 = bridge.cv2_to_compressed_imgmsg(frame2)
-    pub_image.publish(frame1)
-    pub_image2.publish(frame2)
-    fps = round(1 / (time.time() - start), 1)
-    print('FPS:', fps)
+    if cam_cleaner1.last_frame is not None and cam_cleaner2.last_frame is not None:
+        frame1 = cam_cleaner1.last_frame
+        frame2 = cam_cleaner1.last_frame
+        frame1 = bridge.cv2_to_compressed_imgmsg(frame1)
+        frame2 = bridge.cv2_to_compressed_imgmsg(frame2)
+        pub_image.publish(frame1)
+        pub_image2.publish(frame2)
+        fps = round(1 / (time.time() - start), 1)
+        print('FPS:', fps)
+    key = cv2.waitKey(1)
