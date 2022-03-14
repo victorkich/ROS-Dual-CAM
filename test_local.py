@@ -27,9 +27,11 @@ class TestLocal:
     def step(self):
         if self.image_right is None or self.image_left is None:
             return
-        frame = cv2.hconcat([self.image_left, self.image_right])
+        images = [self.image_left, self.image_right]
+        stitcher = cv2.Stitcher_create()
+        (status, frame) = stitcher.stitch(images)
+        # frame = cv2.hconcat([self.image_left, self.image_right])
         cv2.imshow('Frame', frame)
-
 
 
 rospy.init_node('test_local')
