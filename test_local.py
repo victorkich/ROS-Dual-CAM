@@ -6,7 +6,6 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
 import utils.panorama as Panorama
-import imutils
 import time
 
 
