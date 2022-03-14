@@ -8,8 +8,8 @@ import time
 
 rospy.init_node('camera_processing')
 bridge = CvBridge()
-pub_image = rospy.Publisher('/usb_cam/compressed/image_left', CompressedImage, queue_size=1)
-pub_image2 = rospy.Publisher('/usb_cam/compressed/image_right', CompressedImage, queue_size=1)
+pub_image = rospy.Publisher('/usb_cam/compressed/image_left', CompressedImage, queue_size=10)
+pub_image2 = rospy.Publisher('/usb_cam/compressed/image_right', CompressedImage, queue_size=10)
 cam1 = cv2.VideoCapture(0, cv2.CAP_V4L)
 cam1.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
 cam1.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)

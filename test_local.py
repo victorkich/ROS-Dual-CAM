@@ -17,8 +17,8 @@ class TestLocal:
         self.stitcher = Panorama.Stitcher()
         self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
         self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=120)
-        rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback, queue_size=1)
-        rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback, queue_size=1)
+        rospy.Subscriber('/usb_cam/compressed/image_right', CompressedImage, self.image_right_callback, queue_size=10)
+        rospy.Subscriber('/usb_cam/compressed/image_left', CompressedImage, self.image_left_callback, queue_size=10)
 
     def image_right_callback(self, msg):
         self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
