@@ -31,6 +31,8 @@ class TestLocal:
         if self.image_right is None or self.image_left is None:
             return False
         images = [self.image_left, self.image_right]
+        print('Shape left:', self.image_left.shape)
+        print('Shape right:', self.image_right.shape)
         stitcher = cv2.createStitcher() if imutils.is_cv3() else cv2.Stitcher_create()
         (status, frame) = stitcher.stitch(images)
         if status == 0:
