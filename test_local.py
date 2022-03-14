@@ -45,7 +45,7 @@ while key != ord('q'):
     if not val:
         continue
     key = cv2.waitKey(1)
-    time.sleep(1/60)
+    # time.sleep(1/60)
     fps = round(1 / (time.time() - start), 1)
     print('\rFPS:', fps)
 
