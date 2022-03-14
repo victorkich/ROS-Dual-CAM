@@ -43,7 +43,7 @@ while key != ord('q'):
     start = time.time()
     val = test_local.step()
     if not val:
-        pass
+        continue
     key = cv2.waitKey(1)
     # time.sleep(1/60)
     fps = round(1 / (time.time() - start), 1)
