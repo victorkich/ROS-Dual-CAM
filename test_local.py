@@ -33,7 +33,7 @@ class TestLocal:
             return False
         frame = self.stitcher.stitch([self.image_left, self.image_right])
         size = frame.shape
-        frame = frame[round(size[0]*0.08):round(size[0]*0.88), round(size[1]*0.12):round(size[1]*0.5)]
+        frame = frame[round(size[0]*0.08):round(size[0]*0.88), round(size[1]*0.13):round(size[1]*0.5)]
         cv2.imshow('Frame', frame)
         return True
 
