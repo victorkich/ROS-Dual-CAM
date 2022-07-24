@@ -1,0 +1,96 @@
+\hypertarget{namespacedual-cam}{}\doxysection{dual-\/cam Namespace Reference}
+\label{namespacedual-cam}\index{dual-\/cam@{dual-\/cam}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedual-cam_a988a9ac81e83ab018e5f49d109c4dc08}{bridge}} = Cv\+Bridge()
+\item 
+\mbox{\hyperlink{namespacedual-cam_acf0f3e47491465fd8b3a2ccfed6fbc1e}{pub\+\_\+image}} = rospy.\+Publisher(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+left\textquotesingle{}, Compressed\+Image, tcp\+\_\+nodelay=True, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a932e61d388dba2a3e18fd221fee437c2}{pub\+\_\+image2}} = rospy.\+Publisher(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+right\textquotesingle{}, Compressed\+Image, tcp\+\_\+nodelay=True, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a7d6e753ff3e27893da78ecf8461390c7}{cam1}} = cv2.\+Video\+Capture(0, cv2.\+CAP\+\_\+\+V4L)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a7066fb517d531c6234e13992a4be2680}{cam2}} = cv2.\+Video\+Capture(3, cv2.\+CAP\+\_\+\+V4L)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a67084cf4495339e4bfe51af0f6d24e79}{start}} = time.\+time()
+\item 
+\mbox{\hyperlink{namespacedual-cam_a65143568208a44b40e84488e0002914f}{ret1}}
+\item 
+\mbox{\hyperlink{namespacedual-cam_a5ffc28278f4b61022e0dcb1f82b365f0}{frame1}} = bridge.\+cv2\+\_\+to\+\_\+compressed\+\_\+imgmsg(frame1)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a882a427c2c4e04e5fb4769fb2ae367a8}{ret2}}
+\item 
+\mbox{\hyperlink{namespacedual-cam_a541837c23e28a6a235bdf779013a7220}{frame2}} = bridge.\+cv2\+\_\+to\+\_\+compressed\+\_\+imgmsg(frame2)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a3e075d50a730149b8131ab849dbe0c3a}{fps}} = round(1 / (time.\+time() -\/ \mbox{\hyperlink{namespacedual-cam_a67084cf4495339e4bfe51af0f6d24e79}{start}}), 1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedual-cam_a988a9ac81e83ab018e5f49d109c4dc08}\label{namespacedual-cam_a988a9ac81e83ab018e5f49d109c4dc08}} 
+\index{dual-\/cam@{dual-\/cam}!bridge@{bridge}}
+\index{bridge@{bridge}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{bridge}{bridge}}
+{\footnotesize\ttfamily dual-\/cam.\+bridge = Cv\+Bridge()}
+
+\mbox{\Hypertarget{namespacedual-cam_a7d6e753ff3e27893da78ecf8461390c7}\label{namespacedual-cam_a7d6e753ff3e27893da78ecf8461390c7}} 
+\index{dual-\/cam@{dual-\/cam}!cam1@{cam1}}
+\index{cam1@{cam1}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{cam1}{cam1}}
+{\footnotesize\ttfamily dual-\/cam.\+cam1 = cv2.\+Video\+Capture(0, cv2.\+CAP\+\_\+\+V4L)}
+
+\mbox{\Hypertarget{namespacedual-cam_a7066fb517d531c6234e13992a4be2680}\label{namespacedual-cam_a7066fb517d531c6234e13992a4be2680}} 
+\index{dual-\/cam@{dual-\/cam}!cam2@{cam2}}
+\index{cam2@{cam2}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{cam2}{cam2}}
+{\footnotesize\ttfamily dual-\/cam.\+cam2 = cv2.\+Video\+Capture(3, cv2.\+CAP\+\_\+\+V4L)}
+
+\mbox{\Hypertarget{namespacedual-cam_a3e075d50a730149b8131ab849dbe0c3a}\label{namespacedual-cam_a3e075d50a730149b8131ab849dbe0c3a}} 
+\index{dual-\/cam@{dual-\/cam}!fps@{fps}}
+\index{fps@{fps}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{fps}{fps}}
+{\footnotesize\ttfamily dual-\/cam.\+fps = round(1 / (time.\+time() -\/ \mbox{\hyperlink{namespacedual-cam_a67084cf4495339e4bfe51af0f6d24e79}{start}}), 1)}
+
+\mbox{\Hypertarget{namespacedual-cam_a5ffc28278f4b61022e0dcb1f82b365f0}\label{namespacedual-cam_a5ffc28278f4b61022e0dcb1f82b365f0}} 
+\index{dual-\/cam@{dual-\/cam}!frame1@{frame1}}
+\index{frame1@{frame1}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{frame1}{frame1}}
+{\footnotesize\ttfamily dual-\/cam.\+frame1 = bridge.\+cv2\+\_\+to\+\_\+compressed\+\_\+imgmsg(frame1)}
+
+\mbox{\Hypertarget{namespacedual-cam_a541837c23e28a6a235bdf779013a7220}\label{namespacedual-cam_a541837c23e28a6a235bdf779013a7220}} 
+\index{dual-\/cam@{dual-\/cam}!frame2@{frame2}}
+\index{frame2@{frame2}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{frame2}{frame2}}
+{\footnotesize\ttfamily dual-\/cam.\+frame2 = bridge.\+cv2\+\_\+to\+\_\+compressed\+\_\+imgmsg(frame2)}
+
+\mbox{\Hypertarget{namespacedual-cam_acf0f3e47491465fd8b3a2ccfed6fbc1e}\label{namespacedual-cam_acf0f3e47491465fd8b3a2ccfed6fbc1e}} 
+\index{dual-\/cam@{dual-\/cam}!pub\_image@{pub\_image}}
+\index{pub\_image@{pub\_image}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{pub\_image}{pub\_image}}
+{\footnotesize\ttfamily dual-\/cam.\+pub\+\_\+image = rospy.\+Publisher(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+left\textquotesingle{}, Compressed\+Image, tcp\+\_\+nodelay=True, queue\+\_\+size=1)}
+
+\mbox{\Hypertarget{namespacedual-cam_a932e61d388dba2a3e18fd221fee437c2}\label{namespacedual-cam_a932e61d388dba2a3e18fd221fee437c2}} 
+\index{dual-\/cam@{dual-\/cam}!pub\_image2@{pub\_image2}}
+\index{pub\_image2@{pub\_image2}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{pub\_image2}{pub\_image2}}
+{\footnotesize\ttfamily dual-\/cam.\+pub\+\_\+image2 = rospy.\+Publisher(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+right\textquotesingle{}, Compressed\+Image, tcp\+\_\+nodelay=True, queue\+\_\+size=1)}
+
+\mbox{\Hypertarget{namespacedual-cam_a65143568208a44b40e84488e0002914f}\label{namespacedual-cam_a65143568208a44b40e84488e0002914f}} 
+\index{dual-\/cam@{dual-\/cam}!ret1@{ret1}}
+\index{ret1@{ret1}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{ret1}{ret1}}
+{\footnotesize\ttfamily dual-\/cam.\+ret1}
+
+\mbox{\Hypertarget{namespacedual-cam_a882a427c2c4e04e5fb4769fb2ae367a8}\label{namespacedual-cam_a882a427c2c4e04e5fb4769fb2ae367a8}} 
+\index{dual-\/cam@{dual-\/cam}!ret2@{ret2}}
+\index{ret2@{ret2}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{ret2}{ret2}}
+{\footnotesize\ttfamily dual-\/cam.\+ret2}
+
+\mbox{\Hypertarget{namespacedual-cam_a67084cf4495339e4bfe51af0f6d24e79}\label{namespacedual-cam_a67084cf4495339e4bfe51af0f6d24e79}} 
+\index{dual-\/cam@{dual-\/cam}!start@{start}}
+\index{start@{start}!dual-\/cam@{dual-\/cam}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily dual-\/cam.\+start = time.\+time()}
+

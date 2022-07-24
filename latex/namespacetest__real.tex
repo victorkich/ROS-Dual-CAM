@@ -1,0 +1,395 @@
+\hypertarget{namespacetest__real}{}\doxysection{test\+\_\+real Namespace Reference}
+\label{namespacetest__real}\index{test\_real@{test\_real}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtest__real_1_1_linear_deep_q_network}{Linear\+Deep\+QNetwork}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetest__real_a92048f4b7a17ffc4758b0aa1d532b6cf}{update\+Lidar}} (lidar)
+\item 
+def \mbox{\hyperlink{namespacetest__real_af32d61a4d4ee1cea6b3913b6a56bd53c}{get\+Image}} (image)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetest__real_a6ba9b046a7ab5ff1f06297d5d9b3c383}{pub\+\_\+cmd\+\_\+vel}} = rospy.\+Publisher(\textquotesingle{}cmd\+\_\+vel\textquotesingle{}, Twist, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacetest__real_aa9dcbb64401be93abb49dd6b878ea6b2}{lidar\+\_\+g}} = None
+\item 
+\mbox{\hyperlink{namespacetest__real_af32942c6ad6d205ac9fbc9a4d300f87c}{sub\+\_\+scan}} = rospy.\+Subscriber(\textquotesingle{}\mbox{\hyperlink{namespacetest__real_a76479d8428aa4de1b09dd420999164a8}{scan}}\textquotesingle{}, Laser\+Scan, \mbox{\hyperlink{namespacetest__real_a92048f4b7a17ffc4758b0aa1d532b6cf}{update\+Lidar}})
+\item 
+string \mbox{\hyperlink{namespacetest__real_a009048551a51d07d8bd9a844c8421b60}{TURTLE}} = \textquotesingle{}003\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacetest__real_a13ae378759adf6adef05587e8f7e7997}{bridge}} = Cv\+Bridge()
+\item 
+\mbox{\hyperlink{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}{state}} = None
+\item 
+\mbox{\hyperlink{namespacetest__real_ac0ecd44495c206efa89e6e3b3f8eb33a}{font}} = cv2.\+FONT\+\_\+\+HERSHEY\+\_\+\+SIMPLEX
+\item 
+\mbox{\hyperlink{namespacetest__real_a2a1572ff643027a841f42b5e71a7113b}{outfile}} = Temporary\+File()
+\item 
+int \mbox{\hyperlink{namespacetest__real_a637ee082d420ac0ee169dafc36752cb7}{episodes}} = 50
+\item 
+int \mbox{\hyperlink{namespacetest__real_a14203d9c197c38cc9b6a49d882ae6041}{max\+\_\+steps}} = 50000
+\item 
+list \mbox{\hyperlink{namespacetest__real_a749d8a1bf297bc10eefc082b170b5155}{action\+\_\+low}} = \mbox{[}-\/1.\+5, -\/0.\+1\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacetest__real_aa9d8386079a1072c54fb985b358723bb}{action\+\_\+high}} = \mbox{[}1.\+5, 0.\+12\mbox{]}
+\item 
+\mbox{\hyperlink{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}{path}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\item 
+\mbox{\hyperlink{namespacetest__real_ac94250d200e791b6c0725d396cb3f544}{config}} = yaml.\+load(ymlfile, Loader=yaml.\+Full\+Loader)
+\item 
+\mbox{\hyperlink{namespacetest__real_acb692d8ce4745f0647f16ce6658d6478}{env}} = input(\textquotesingle{}Which environment are you running? \mbox{[}1 $\vert$ 2 $\vert$ l\mbox{]}\+:\textbackslash{}n\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacetest__real_a88c5d63b78a15ade1e38d97a616d1a9d}{real\+\_\+ttb}} = rf.\+Real\+Ttb(\mbox{\hyperlink{namespacetest__real_ac94250d200e791b6c0725d396cb3f544}{config}}, \mbox{\hyperlink{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}{path}}, output=(640, 640))
+\item 
+\mbox{\hyperlink{namespacetest__real_a2da2fc0f2628498251219f0a24d31eec}{sub\+\_\+image}} = rospy.\+Subscriber(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+right\textquotesingle{}, Compressed\+Image, \mbox{\hyperlink{namespacetest__real_af32d61a4d4ee1cea6b3913b6a56bd53c}{get\+Image}}, queue\+\_\+size=1)
+\item 
+string \mbox{\hyperlink{namespacetest__real_a1d741a0e84d16f37f04898a8d53ba964}{path\+\_\+results}} = \mbox{\hyperlink{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}{path}} + \textquotesingle{}/real\+\_\+results\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacetest__real_a63e1ebc93b80208cb75e63fbdcce2eb4}{algorithms\+\_\+sel}} = np.\+array(\mbox{[}\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}, \textquotesingle{}e\textquotesingle{}, \textquotesingle{}r\textquotesingle{}\mbox{]})
+\item 
+string \mbox{\hyperlink{namespacetest__real_a24c1c25cfec2e7aab3c1846d10095649}{algorithm}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacetest__real_abd0430cf6c429c63ad1f347d7d31c970}{model}} = \textquotesingle{}2\textquotesingle{} else f\char`\"{}dqn\+\_\+st\{env.\+upper()\}\+\_\+model\+\_\+5k.\+pth\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacetest__real_a180865f7be3686f62551c50e8cac6c72}{model\+\_\+fn}} = f\char`\"{}\{path\}/\{\mbox{\hyperlink{namespacetest__real_abd0430cf6c429c63ad1f347d7d31c970}{model}}\}\char`\"{}
+\item 
+int \mbox{\hyperlink{namespacetest__real_ab3ee764c969af9dbdf9878010c94e742}{action\+\_\+size}} = 5
+\item 
+int \mbox{\hyperlink{namespacetest__real_ae9b3bd7f7fac41656a6537ba2e42c692}{observation\+\_\+space}} = 26
+\item 
+\mbox{\hyperlink{namespacetest__real_a820ae289c64e564d2b5c89568898c625}{actor}} = \mbox{\hyperlink{classtest__real_1_1_linear_deep_q_network}{Linear\+Deep\+QNetwork}}(0, \mbox{\hyperlink{namespacetest__real_ab3ee764c969af9dbdf9878010c94e742}{action\+\_\+size}}, \mbox{\hyperlink{namespacetest__real_ae9b3bd7f7fac41656a6537ba2e42c692}{observation\+\_\+space}})
+\item 
+dictionary \mbox{\hyperlink{namespacetest__real_afa6e6c412d88602c7a3132649ca3aec2}{det}} = \{0\+: -\/1.\+5, 1\+: -\/0.\+75, 2\+: 0, 3\+: 0.\+75, 4\+: 1.\+5\}
+\item 
+int \mbox{\hyperlink{namespacetest__real_ad9c3e294ac12e94f16dfdd363d3b2215}{local\+\_\+episode}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_a7d03d51131c279fa386ef3765414fdab}{quit}} = input(\char`\"{}Press \mbox{[}Enter\mbox{]} to \mbox{\hyperlink{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}{start}} the test or press \mbox{[}q\mbox{]} to quit...\char`\"{})
+\item 
+int \mbox{\hyperlink{namespacetest__real_a7100d4dee5166a96c9e47155461a8bfd}{episode\+\_\+reward}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_ad670d9b04a94b9b7739de4ed606aabc6}{lidar\+\_\+list}} = list()
+\item 
+int \mbox{\hyperlink{namespacetest__real_aea100a6ee742498934a623cd3590c52c}{num\+\_\+steps}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_a3ffaac41b283620899bc8606a87373fb}{ep\+\_\+start\+\_\+time}} = time.\+time()
+\item 
+bool \mbox{\hyperlink{namespacetest__real_a25e3357bff1550c67493c61d180f8420}{done}} = False
+\item 
+\mbox{\hyperlink{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}{start}} = time.\+time()
+\item 
+\mbox{\hyperlink{namespacetest__real_a8d5bb5c7fd992b3b50cb0e4c30da6acd}{val\+\_\+state}} = \mbox{\hyperlink{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}{state}}
+\item 
+\mbox{\hyperlink{namespacetest__real_aa0d00542c37289082213fb0af7e55c88}{actions}} = \mbox{\hyperlink{namespacetest__real_a820ae289c64e564d2b5c89568898c625}{actor}}(\mbox{\hyperlink{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}{state}})
+\item 
+\mbox{\hyperlink{namespacetest__real_abfa2e189ee25cf5589e1d5ccaf2cf6ad}{action}} = torch.\+argmax(\mbox{\hyperlink{namespacetest__real_aa0d00542c37289082213fb0af7e55c88}{actions}}).item()
+\item 
+\mbox{\hyperlink{namespacetest__real_a8573f82e3ae9a31c1b2e078f36ebdf65}{vel\+\_\+cmd}} = Twist()
+\item 
+\mbox{\hyperlink{namespacetest__real_add2d2c32d6460f6ddb17f5faf85788e0}{x}}
+\item 
+\mbox{\hyperlink{namespacetest__real_a1794251ff79303df80908a53a2e5324a}{z}}
+\item 
+int \mbox{\hyperlink{namespacetest__real_ac5cb2b544a1df844e3ebbda1263f3fe9}{reward}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_a76479d8428aa4de1b09dd420999164a8}{scan}} = \mbox{\hyperlink{namespacetest__real_a8d5bb5c7fd992b3b50cb0e4c30da6acd}{val\+\_\+state}}\mbox{[}0\+:24\mbox{]}
+\item 
+\mbox{\hyperlink{namespacetest__real_a77f32caecc2dc822ecfb0ac92f3b9d05}{fps}} = round(1 / (time.\+time() -\/ \mbox{\hyperlink{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}{start}}))
+\item 
+\mbox{\hyperlink{namespacetest__real_ab88610bc26f036d551f19e474fecca6e}{episode\+\_\+timing}} = time.\+time() -\/ \mbox{\hyperlink{namespacetest__real_a3ffaac41b283620899bc8606a87373fb}{ep\+\_\+start\+\_\+time}}
+\item 
+list \mbox{\hyperlink{namespacetest__real_a0b5c83f45a38d0313181d7182c608664}{values}} = \mbox{[}\mbox{\hyperlink{namespacetest__real_a7100d4dee5166a96c9e47155461a8bfd}{episode\+\_\+reward}}, \mbox{\hyperlink{namespacetest__real_ab88610bc26f036d551f19e474fecca6e}{episode\+\_\+timing}}, \mbox{\hyperlink{namespacetest__real_ad9c3e294ac12e94f16dfdd363d3b2215}{local\+\_\+episode}}, \mbox{\hyperlink{namespacetest__real_aea100a6ee742498934a623cd3590c52c}{num\+\_\+steps}}, real\+\_\+ttb.\+pts, \mbox{\hyperlink{namespacetest__real_ad670d9b04a94b9b7739de4ed606aabc6}{lidar\+\_\+list}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetest__real_af32d61a4d4ee1cea6b3913b6a56bd53c}\label{namespacetest__real_af32d61a4d4ee1cea6b3913b6a56bd53c}} 
+\index{test\_real@{test\_real}!getImage@{getImage}}
+\index{getImage@{getImage}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{getImage()}{getImage()}}
+{\footnotesize\ttfamily def test\+\_\+real.\+get\+Image (\begin{DoxyParamCaption}\item[{}]{image }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacetest__real_a92048f4b7a17ffc4758b0aa1d532b6cf}\label{namespacetest__real_a92048f4b7a17ffc4758b0aa1d532b6cf}} 
+\index{test\_real@{test\_real}!updateLidar@{updateLidar}}
+\index{updateLidar@{updateLidar}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{updateLidar()}{updateLidar()}}
+{\footnotesize\ttfamily def test\+\_\+real.\+update\+Lidar (\begin{DoxyParamCaption}\item[{}]{lidar }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetest__real_abfa2e189ee25cf5589e1d5ccaf2cf6ad}\label{namespacetest__real_abfa2e189ee25cf5589e1d5ccaf2cf6ad}} 
+\index{test\_real@{test\_real}!action@{action}}
+\index{action@{action}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{action}{action}}
+{\footnotesize\ttfamily test\+\_\+real.\+action = torch.\+argmax(\mbox{\hyperlink{namespacetest__real_aa0d00542c37289082213fb0af7e55c88}{actions}}).item()}
+
+\mbox{\Hypertarget{namespacetest__real_aa9d8386079a1072c54fb985b358723bb}\label{namespacetest__real_aa9d8386079a1072c54fb985b358723bb}} 
+\index{test\_real@{test\_real}!action\_high@{action\_high}}
+\index{action\_high@{action\_high}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{action\_high}{action\_high}}
+{\footnotesize\ttfamily list test\+\_\+real.\+action\+\_\+high = \mbox{[}1.\+5, 0.\+12\mbox{]}}
+
+\mbox{\Hypertarget{namespacetest__real_a749d8a1bf297bc10eefc082b170b5155}\label{namespacetest__real_a749d8a1bf297bc10eefc082b170b5155}} 
+\index{test\_real@{test\_real}!action\_low@{action\_low}}
+\index{action\_low@{action\_low}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{action\_low}{action\_low}}
+{\footnotesize\ttfamily list test\+\_\+real.\+action\+\_\+low = \mbox{[}-\/1.\+5, -\/0.\+1\mbox{]}}
+
+\mbox{\Hypertarget{namespacetest__real_ab3ee764c969af9dbdf9878010c94e742}\label{namespacetest__real_ab3ee764c969af9dbdf9878010c94e742}} 
+\index{test\_real@{test\_real}!action\_size@{action\_size}}
+\index{action\_size@{action\_size}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{action\_size}{action\_size}}
+{\footnotesize\ttfamily int test\+\_\+real.\+action\+\_\+size = 5}
+
+\mbox{\Hypertarget{namespacetest__real_aa0d00542c37289082213fb0af7e55c88}\label{namespacetest__real_aa0d00542c37289082213fb0af7e55c88}} 
+\index{test\_real@{test\_real}!actions@{actions}}
+\index{actions@{actions}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{actions}{actions}}
+{\footnotesize\ttfamily test\+\_\+real.\+actions = \mbox{\hyperlink{namespacetest__real_a820ae289c64e564d2b5c89568898c625}{actor}}(\mbox{\hyperlink{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}{state}})}
+
+\mbox{\Hypertarget{namespacetest__real_a820ae289c64e564d2b5c89568898c625}\label{namespacetest__real_a820ae289c64e564d2b5c89568898c625}} 
+\index{test\_real@{test\_real}!actor@{actor}}
+\index{actor@{actor}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{actor}{actor}}
+{\footnotesize\ttfamily test\+\_\+real.\+actor = \mbox{\hyperlink{classtest__real_1_1_linear_deep_q_network}{Linear\+Deep\+QNetwork}}(0, \mbox{\hyperlink{namespacetest__real_ab3ee764c969af9dbdf9878010c94e742}{action\+\_\+size}}, \mbox{\hyperlink{namespacetest__real_ae9b3bd7f7fac41656a6537ba2e42c692}{observation\+\_\+space}})}
+
+\mbox{\Hypertarget{namespacetest__real_a24c1c25cfec2e7aab3c1846d10095649}\label{namespacetest__real_a24c1c25cfec2e7aab3c1846d10095649}} 
+\index{test\_real@{test\_real}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily test\+\_\+real.\+algorithm = \char`\"{}\char`\"{}}
+
+\mbox{\Hypertarget{namespacetest__real_a63e1ebc93b80208cb75e63fbdcce2eb4}\label{namespacetest__real_a63e1ebc93b80208cb75e63fbdcce2eb4}} 
+\index{test\_real@{test\_real}!algorithms\_sel@{algorithms\_sel}}
+\index{algorithms\_sel@{algorithms\_sel}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{algorithms\_sel}{algorithms\_sel}}
+{\footnotesize\ttfamily test\+\_\+real.\+algorithms\+\_\+sel = np.\+array(\mbox{[}\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}, \textquotesingle{}e\textquotesingle{}, \textquotesingle{}r\textquotesingle{}\mbox{]})}
+
+\mbox{\Hypertarget{namespacetest__real_a13ae378759adf6adef05587e8f7e7997}\label{namespacetest__real_a13ae378759adf6adef05587e8f7e7997}} 
+\index{test\_real@{test\_real}!bridge@{bridge}}
+\index{bridge@{bridge}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{bridge}{bridge}}
+{\footnotesize\ttfamily test\+\_\+real.\+bridge = Cv\+Bridge()}
+
+\mbox{\Hypertarget{namespacetest__real_ac94250d200e791b6c0725d396cb3f544}\label{namespacetest__real_ac94250d200e791b6c0725d396cb3f544}} 
+\index{test\_real@{test\_real}!config@{config}}
+\index{config@{config}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily test\+\_\+real.\+config = yaml.\+load(ymlfile, Loader=yaml.\+Full\+Loader)}
+
+\mbox{\Hypertarget{namespacetest__real_afa6e6c412d88602c7a3132649ca3aec2}\label{namespacetest__real_afa6e6c412d88602c7a3132649ca3aec2}} 
+\index{test\_real@{test\_real}!det@{det}}
+\index{det@{det}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{det}{det}}
+{\footnotesize\ttfamily dictionary test\+\_\+real.\+det = \{0\+: -\/1.\+5, 1\+: -\/0.\+75, 2\+: 0, 3\+: 0.\+75, 4\+: 1.\+5\}}
+
+\mbox{\Hypertarget{namespacetest__real_a25e3357bff1550c67493c61d180f8420}\label{namespacetest__real_a25e3357bff1550c67493c61d180f8420}} 
+\index{test\_real@{test\_real}!done@{done}}
+\index{done@{done}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{done}{done}}
+{\footnotesize\ttfamily bool test\+\_\+real.\+done = False}
+
+\mbox{\Hypertarget{namespacetest__real_acb692d8ce4745f0647f16ce6658d6478}\label{namespacetest__real_acb692d8ce4745f0647f16ce6658d6478}} 
+\index{test\_real@{test\_real}!env@{env}}
+\index{env@{env}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{env}{env}}
+{\footnotesize\ttfamily test\+\_\+real.\+env = input(\textquotesingle{}Which environment are you running? \mbox{[}1 $\vert$ 2 $\vert$ l\mbox{]}\+:\textbackslash{}n\textquotesingle{})}
+
+\mbox{\Hypertarget{namespacetest__real_a3ffaac41b283620899bc8606a87373fb}\label{namespacetest__real_a3ffaac41b283620899bc8606a87373fb}} 
+\index{test\_real@{test\_real}!ep\_start\_time@{ep\_start\_time}}
+\index{ep\_start\_time@{ep\_start\_time}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{ep\_start\_time}{ep\_start\_time}}
+{\footnotesize\ttfamily test\+\_\+real.\+ep\+\_\+start\+\_\+time = time.\+time()}
+
+\mbox{\Hypertarget{namespacetest__real_a7100d4dee5166a96c9e47155461a8bfd}\label{namespacetest__real_a7100d4dee5166a96c9e47155461a8bfd}} 
+\index{test\_real@{test\_real}!episode\_reward@{episode\_reward}}
+\index{episode\_reward@{episode\_reward}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{episode\_reward}{episode\_reward}}
+{\footnotesize\ttfamily int test\+\_\+real.\+episode\+\_\+reward = 0}
+
+\mbox{\Hypertarget{namespacetest__real_ab88610bc26f036d551f19e474fecca6e}\label{namespacetest__real_ab88610bc26f036d551f19e474fecca6e}} 
+\index{test\_real@{test\_real}!episode\_timing@{episode\_timing}}
+\index{episode\_timing@{episode\_timing}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{episode\_timing}{episode\_timing}}
+{\footnotesize\ttfamily test\+\_\+real.\+episode\+\_\+timing = time.\+time() -\/ \mbox{\hyperlink{namespacetest__real_a3ffaac41b283620899bc8606a87373fb}{ep\+\_\+start\+\_\+time}}}
+
+\mbox{\Hypertarget{namespacetest__real_a637ee082d420ac0ee169dafc36752cb7}\label{namespacetest__real_a637ee082d420ac0ee169dafc36752cb7}} 
+\index{test\_real@{test\_real}!episodes@{episodes}}
+\index{episodes@{episodes}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{episodes}{episodes}}
+{\footnotesize\ttfamily int test\+\_\+real.\+episodes = 50}
+
+\mbox{\Hypertarget{namespacetest__real_ac0ecd44495c206efa89e6e3b3f8eb33a}\label{namespacetest__real_ac0ecd44495c206efa89e6e3b3f8eb33a}} 
+\index{test\_real@{test\_real}!font@{font}}
+\index{font@{font}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily test\+\_\+real.\+font = cv2.\+FONT\+\_\+\+HERSHEY\+\_\+\+SIMPLEX}
+
+\mbox{\Hypertarget{namespacetest__real_a77f32caecc2dc822ecfb0ac92f3b9d05}\label{namespacetest__real_a77f32caecc2dc822ecfb0ac92f3b9d05}} 
+\index{test\_real@{test\_real}!fps@{fps}}
+\index{fps@{fps}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{fps}{fps}}
+{\footnotesize\ttfamily test\+\_\+real.\+fps = round(1 / (time.\+time() -\/ \mbox{\hyperlink{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}{start}}))}
+
+\mbox{\Hypertarget{namespacetest__real_aa9dcbb64401be93abb49dd6b878ea6b2}\label{namespacetest__real_aa9dcbb64401be93abb49dd6b878ea6b2}} 
+\index{test\_real@{test\_real}!lidar\_g@{lidar\_g}}
+\index{lidar\_g@{lidar\_g}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{lidar\_g}{lidar\_g}}
+{\footnotesize\ttfamily test\+\_\+real.\+lidar\+\_\+g = None}
+
+\mbox{\Hypertarget{namespacetest__real_ad670d9b04a94b9b7739de4ed606aabc6}\label{namespacetest__real_ad670d9b04a94b9b7739de4ed606aabc6}} 
+\index{test\_real@{test\_real}!lidar\_list@{lidar\_list}}
+\index{lidar\_list@{lidar\_list}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{lidar\_list}{lidar\_list}}
+{\footnotesize\ttfamily test\+\_\+real.\+lidar\+\_\+list = list()}
+
+\mbox{\Hypertarget{namespacetest__real_ad9c3e294ac12e94f16dfdd363d3b2215}\label{namespacetest__real_ad9c3e294ac12e94f16dfdd363d3b2215}} 
+\index{test\_real@{test\_real}!local\_episode@{local\_episode}}
+\index{local\_episode@{local\_episode}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{local\_episode}{local\_episode}}
+{\footnotesize\ttfamily int test\+\_\+real.\+local\+\_\+episode = 0}
+
+\mbox{\Hypertarget{namespacetest__real_a14203d9c197c38cc9b6a49d882ae6041}\label{namespacetest__real_a14203d9c197c38cc9b6a49d882ae6041}} 
+\index{test\_real@{test\_real}!max\_steps@{max\_steps}}
+\index{max\_steps@{max\_steps}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{max\_steps}{max\_steps}}
+{\footnotesize\ttfamily int test\+\_\+real.\+max\+\_\+steps = 50000}
+
+\mbox{\Hypertarget{namespacetest__real_abd0430cf6c429c63ad1f347d7d31c970}\label{namespacetest__real_abd0430cf6c429c63ad1f347d7d31c970}} 
+\index{test\_real@{test\_real}!model@{model}}
+\index{model@{model}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily string test\+\_\+real.\+model = \textquotesingle{}2\textquotesingle{} else f\char`\"{}dqn\+\_\+st\{env.\+upper()\}\+\_\+model\+\_\+5k.\+pth\char`\"{}}
+
+\mbox{\Hypertarget{namespacetest__real_a180865f7be3686f62551c50e8cac6c72}\label{namespacetest__real_a180865f7be3686f62551c50e8cac6c72}} 
+\index{test\_real@{test\_real}!model\_fn@{model\_fn}}
+\index{model\_fn@{model\_fn}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{model\_fn}{model\_fn}}
+{\footnotesize\ttfamily string test\+\_\+real.\+model\+\_\+fn = f\char`\"{}\{path\}/\{\mbox{\hyperlink{namespacetest__real_abd0430cf6c429c63ad1f347d7d31c970}{model}}\}\char`\"{}}
+
+\mbox{\Hypertarget{namespacetest__real_aea100a6ee742498934a623cd3590c52c}\label{namespacetest__real_aea100a6ee742498934a623cd3590c52c}} 
+\index{test\_real@{test\_real}!num\_steps@{num\_steps}}
+\index{num\_steps@{num\_steps}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{num\_steps}{num\_steps}}
+{\footnotesize\ttfamily int test\+\_\+real.\+num\+\_\+steps = 0}
+
+\mbox{\Hypertarget{namespacetest__real_ae9b3bd7f7fac41656a6537ba2e42c692}\label{namespacetest__real_ae9b3bd7f7fac41656a6537ba2e42c692}} 
+\index{test\_real@{test\_real}!observation\_space@{observation\_space}}
+\index{observation\_space@{observation\_space}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{observation\_space}{observation\_space}}
+{\footnotesize\ttfamily int test\+\_\+real.\+observation\+\_\+space = 26}
+
+\mbox{\Hypertarget{namespacetest__real_a2a1572ff643027a841f42b5e71a7113b}\label{namespacetest__real_a2a1572ff643027a841f42b5e71a7113b}} 
+\index{test\_real@{test\_real}!outfile@{outfile}}
+\index{outfile@{outfile}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{outfile}{outfile}}
+{\footnotesize\ttfamily test\+\_\+real.\+outfile = Temporary\+File()}
+
+\mbox{\Hypertarget{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}\label{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}} 
+\index{test\_real@{test\_real}!path@{path}}
+\index{path@{path}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily test\+\_\+real.\+path = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))}
+
+\mbox{\Hypertarget{namespacetest__real_a1d741a0e84d16f37f04898a8d53ba964}\label{namespacetest__real_a1d741a0e84d16f37f04898a8d53ba964}} 
+\index{test\_real@{test\_real}!path\_results@{path\_results}}
+\index{path\_results@{path\_results}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{path\_results}{path\_results}}
+{\footnotesize\ttfamily string test\+\_\+real.\+path\+\_\+results = \mbox{\hyperlink{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}{path}} + \textquotesingle{}/real\+\_\+results\textquotesingle{}}
+
+\mbox{\Hypertarget{namespacetest__real_a6ba9b046a7ab5ff1f06297d5d9b3c383}\label{namespacetest__real_a6ba9b046a7ab5ff1f06297d5d9b3c383}} 
+\index{test\_real@{test\_real}!pub\_cmd\_vel@{pub\_cmd\_vel}}
+\index{pub\_cmd\_vel@{pub\_cmd\_vel}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{pub\_cmd\_vel}{pub\_cmd\_vel}}
+{\footnotesize\ttfamily test\+\_\+real.\+pub\+\_\+cmd\+\_\+vel = rospy.\+Publisher(\textquotesingle{}cmd\+\_\+vel\textquotesingle{}, Twist, queue\+\_\+size=1)}
+
+\mbox{\Hypertarget{namespacetest__real_a7d03d51131c279fa386ef3765414fdab}\label{namespacetest__real_a7d03d51131c279fa386ef3765414fdab}} 
+\index{test\_real@{test\_real}!quit@{quit}}
+\index{quit@{quit}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{quit}{quit}}
+{\footnotesize\ttfamily test\+\_\+real.\+quit = input(\char`\"{}Press \mbox{[}Enter\mbox{]} to \mbox{\hyperlink{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}{start}} the test or press \mbox{[}q\mbox{]} to quit...\char`\"{})}
+
+\mbox{\Hypertarget{namespacetest__real_a88c5d63b78a15ade1e38d97a616d1a9d}\label{namespacetest__real_a88c5d63b78a15ade1e38d97a616d1a9d}} 
+\index{test\_real@{test\_real}!real\_ttb@{real\_ttb}}
+\index{real\_ttb@{real\_ttb}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{real\_ttb}{real\_ttb}}
+{\footnotesize\ttfamily test\+\_\+real.\+real\+\_\+ttb = rf.\+Real\+Ttb(\mbox{\hyperlink{namespacetest__real_ac94250d200e791b6c0725d396cb3f544}{config}}, \mbox{\hyperlink{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}{path}}, output=(640, 640))}
+
+\mbox{\Hypertarget{namespacetest__real_ac5cb2b544a1df844e3ebbda1263f3fe9}\label{namespacetest__real_ac5cb2b544a1df844e3ebbda1263f3fe9}} 
+\index{test\_real@{test\_real}!reward@{reward}}
+\index{reward@{reward}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{reward}{reward}}
+{\footnotesize\ttfamily int test\+\_\+real.\+reward = 0}
+
+\mbox{\Hypertarget{namespacetest__real_a76479d8428aa4de1b09dd420999164a8}\label{namespacetest__real_a76479d8428aa4de1b09dd420999164a8}} 
+\index{test\_real@{test\_real}!scan@{scan}}
+\index{scan@{scan}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{scan}{scan}}
+{\footnotesize\ttfamily test\+\_\+real.\+scan = \mbox{\hyperlink{namespacetest__real_a8d5bb5c7fd992b3b50cb0e4c30da6acd}{val\+\_\+state}}\mbox{[}0\+:24\mbox{]}}
+
+\mbox{\Hypertarget{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}\label{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}} 
+\index{test\_real@{test\_real}!start@{start}}
+\index{start@{start}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily test\+\_\+real.\+start = time.\+time()}
+
+\mbox{\Hypertarget{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}\label{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}} 
+\index{test\_real@{test\_real}!state@{state}}
+\index{state@{state}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily test\+\_\+real.\+state = None}
+
+\mbox{\Hypertarget{namespacetest__real_a2da2fc0f2628498251219f0a24d31eec}\label{namespacetest__real_a2da2fc0f2628498251219f0a24d31eec}} 
+\index{test\_real@{test\_real}!sub\_image@{sub\_image}}
+\index{sub\_image@{sub\_image}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{sub\_image}{sub\_image}}
+{\footnotesize\ttfamily test\+\_\+real.\+sub\+\_\+image = rospy.\+Subscriber(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+right\textquotesingle{}, Compressed\+Image, \mbox{\hyperlink{namespacetest__real_af32d61a4d4ee1cea6b3913b6a56bd53c}{get\+Image}}, queue\+\_\+size=1)}
+
+\mbox{\Hypertarget{namespacetest__real_af32942c6ad6d205ac9fbc9a4d300f87c}\label{namespacetest__real_af32942c6ad6d205ac9fbc9a4d300f87c}} 
+\index{test\_real@{test\_real}!sub\_scan@{sub\_scan}}
+\index{sub\_scan@{sub\_scan}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{sub\_scan}{sub\_scan}}
+{\footnotesize\ttfamily test\+\_\+real.\+sub\+\_\+scan = rospy.\+Subscriber(\textquotesingle{}\mbox{\hyperlink{namespacetest__real_a76479d8428aa4de1b09dd420999164a8}{scan}}\textquotesingle{}, Laser\+Scan, \mbox{\hyperlink{namespacetest__real_a92048f4b7a17ffc4758b0aa1d532b6cf}{update\+Lidar}})}
+
+\mbox{\Hypertarget{namespacetest__real_a009048551a51d07d8bd9a844c8421b60}\label{namespacetest__real_a009048551a51d07d8bd9a844c8421b60}} 
+\index{test\_real@{test\_real}!TURTLE@{TURTLE}}
+\index{TURTLE@{TURTLE}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{TURTLE}{TURTLE}}
+{\footnotesize\ttfamily string test\+\_\+real.\+TURTLE = \textquotesingle{}003\textquotesingle{}}
+
+\mbox{\Hypertarget{namespacetest__real_a8d5bb5c7fd992b3b50cb0e4c30da6acd}\label{namespacetest__real_a8d5bb5c7fd992b3b50cb0e4c30da6acd}} 
+\index{test\_real@{test\_real}!val\_state@{val\_state}}
+\index{val\_state@{val\_state}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{val\_state}{val\_state}}
+{\footnotesize\ttfamily test\+\_\+real.\+val\+\_\+state = \mbox{\hyperlink{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}{state}}}
+
+\mbox{\Hypertarget{namespacetest__real_a0b5c83f45a38d0313181d7182c608664}\label{namespacetest__real_a0b5c83f45a38d0313181d7182c608664}} 
+\index{test\_real@{test\_real}!values@{values}}
+\index{values@{values}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{values}{values}}
+{\footnotesize\ttfamily list test\+\_\+real.\+values = \mbox{[}\mbox{\hyperlink{namespacetest__real_a7100d4dee5166a96c9e47155461a8bfd}{episode\+\_\+reward}}, \mbox{\hyperlink{namespacetest__real_ab88610bc26f036d551f19e474fecca6e}{episode\+\_\+timing}}, \mbox{\hyperlink{namespacetest__real_ad9c3e294ac12e94f16dfdd363d3b2215}{local\+\_\+episode}}, \mbox{\hyperlink{namespacetest__real_aea100a6ee742498934a623cd3590c52c}{num\+\_\+steps}}, real\+\_\+ttb.\+pts, \mbox{\hyperlink{namespacetest__real_ad670d9b04a94b9b7739de4ed606aabc6}{lidar\+\_\+list}}\mbox{]}}
+
+\mbox{\Hypertarget{namespacetest__real_a8573f82e3ae9a31c1b2e078f36ebdf65}\label{namespacetest__real_a8573f82e3ae9a31c1b2e078f36ebdf65}} 
+\index{test\_real@{test\_real}!vel\_cmd@{vel\_cmd}}
+\index{vel\_cmd@{vel\_cmd}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{vel\_cmd}{vel\_cmd}}
+{\footnotesize\ttfamily test\+\_\+real.\+vel\+\_\+cmd = Twist()}
+
+\mbox{\Hypertarget{namespacetest__real_add2d2c32d6460f6ddb17f5faf85788e0}\label{namespacetest__real_add2d2c32d6460f6ddb17f5faf85788e0}} 
+\index{test\_real@{test\_real}!x@{x}}
+\index{x@{x}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily test\+\_\+real.\+x}
+
+\mbox{\Hypertarget{namespacetest__real_a1794251ff79303df80908a53a2e5324a}\label{namespacetest__real_a1794251ff79303df80908a53a2e5324a}} 
+\index{test\_real@{test\_real}!z@{z}}
+\index{z@{z}!test\_real@{test\_real}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily test\+\_\+real.\+z}
+

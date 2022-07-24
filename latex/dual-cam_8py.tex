@@ -1,0 +1,32 @@
+\hypertarget{dual-cam_8py}{}\doxysection{dual-\/cam.py File Reference}
+\label{dual-cam_8py}\index{dual-\/cam.py@{dual-\/cam.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedual-cam}{dual-\/cam}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedual-cam_a988a9ac81e83ab018e5f49d109c4dc08}{dual-\/cam.\+bridge}} = Cv\+Bridge()
+\item 
+\mbox{\hyperlink{namespacedual-cam_acf0f3e47491465fd8b3a2ccfed6fbc1e}{dual-\/cam.\+pub\+\_\+image}} = rospy.\+Publisher(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+left\textquotesingle{}, Compressed\+Image, tcp\+\_\+nodelay=True, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a932e61d388dba2a3e18fd221fee437c2}{dual-\/cam.\+pub\+\_\+image2}} = rospy.\+Publisher(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+right\textquotesingle{}, Compressed\+Image, tcp\+\_\+nodelay=True, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a7d6e753ff3e27893da78ecf8461390c7}{dual-\/cam.\+cam1}} = cv2.\+Video\+Capture(0, cv2.\+CAP\+\_\+\+V4L)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a7066fb517d531c6234e13992a4be2680}{dual-\/cam.\+cam2}} = cv2.\+Video\+Capture(3, cv2.\+CAP\+\_\+\+V4L)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a67084cf4495339e4bfe51af0f6d24e79}{dual-\/cam.\+start}} = time.\+time()
+\item 
+\mbox{\hyperlink{namespacedual-cam_a65143568208a44b40e84488e0002914f}{dual-\/cam.\+ret1}}
+\item 
+\mbox{\hyperlink{namespacedual-cam_a5ffc28278f4b61022e0dcb1f82b365f0}{dual-\/cam.\+frame1}} = bridge.\+cv2\+\_\+to\+\_\+compressed\+\_\+imgmsg(frame1)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a882a427c2c4e04e5fb4769fb2ae367a8}{dual-\/cam.\+ret2}}
+\item 
+\mbox{\hyperlink{namespacedual-cam_a541837c23e28a6a235bdf779013a7220}{dual-\/cam.\+frame2}} = bridge.\+cv2\+\_\+to\+\_\+compressed\+\_\+imgmsg(frame2)
+\item 
+\mbox{\hyperlink{namespacedual-cam_a3e075d50a730149b8131ab849dbe0c3a}{dual-\/cam.\+fps}} = round(1 / (time.\+time() -\/ start), 1)
+\end{DoxyCompactItemize}

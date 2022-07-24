@@ -1,0 +1,112 @@
+\hypertarget{test__real_8py}{}\doxysection{test\+\_\+real.\+py File Reference}
+\label{test__real_8py}\index{test\_real.py@{test\_real.py}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtest__real_1_1_linear_deep_q_network}{test\+\_\+real.\+Linear\+Deep\+QNetwork}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetest__real}{test\+\_\+real}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetest__real_a92048f4b7a17ffc4758b0aa1d532b6cf}{test\+\_\+real.\+update\+Lidar}} (lidar)
+\item 
+def \mbox{\hyperlink{namespacetest__real_af32d61a4d4ee1cea6b3913b6a56bd53c}{test\+\_\+real.\+get\+Image}} (image)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetest__real_a6ba9b046a7ab5ff1f06297d5d9b3c383}{test\+\_\+real.\+pub\+\_\+cmd\+\_\+vel}} = rospy.\+Publisher(\textquotesingle{}cmd\+\_\+vel\textquotesingle{}, Twist, queue\+\_\+size=1)
+\item 
+\mbox{\hyperlink{namespacetest__real_aa9dcbb64401be93abb49dd6b878ea6b2}{test\+\_\+real.\+lidar\+\_\+g}} = None
+\item 
+\mbox{\hyperlink{namespacetest__real_af32942c6ad6d205ac9fbc9a4d300f87c}{test\+\_\+real.\+sub\+\_\+scan}} = rospy.\+Subscriber(\textquotesingle{}scan\textquotesingle{}, Laser\+Scan, update\+Lidar)
+\item 
+string \mbox{\hyperlink{namespacetest__real_a009048551a51d07d8bd9a844c8421b60}{test\+\_\+real.\+TURTLE}} = \textquotesingle{}003\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacetest__real_a13ae378759adf6adef05587e8f7e7997}{test\+\_\+real.\+bridge}} = Cv\+Bridge()
+\item 
+\mbox{\hyperlink{namespacetest__real_a89de2ddceb2fbe60c69a20438e7be49b}{test\+\_\+real.\+state}} = None
+\item 
+\mbox{\hyperlink{namespacetest__real_ac0ecd44495c206efa89e6e3b3f8eb33a}{test\+\_\+real.\+font}} = cv2.\+FONT\+\_\+\+HERSHEY\+\_\+\+SIMPLEX
+\item 
+\mbox{\hyperlink{namespacetest__real_a2a1572ff643027a841f42b5e71a7113b}{test\+\_\+real.\+outfile}} = Temporary\+File()
+\item 
+int \mbox{\hyperlink{namespacetest__real_a637ee082d420ac0ee169dafc36752cb7}{test\+\_\+real.\+episodes}} = 50
+\item 
+int \mbox{\hyperlink{namespacetest__real_a14203d9c197c38cc9b6a49d882ae6041}{test\+\_\+real.\+max\+\_\+steps}} = 50000
+\item 
+list \mbox{\hyperlink{namespacetest__real_a749d8a1bf297bc10eefc082b170b5155}{test\+\_\+real.\+action\+\_\+low}} = \mbox{[}-\/1.\+5, -\/0.\+1\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacetest__real_aa9d8386079a1072c54fb985b358723bb}{test\+\_\+real.\+action\+\_\+high}} = \mbox{[}1.\+5, 0.\+12\mbox{]}
+\item 
+\mbox{\hyperlink{namespacetest__real_a47ad725af8a5283272fc3df5372790ef}{test\+\_\+real.\+path}} = os.\+path.\+dirname(os.\+path.\+abspath(\+\_\+\+\_\+file\+\_\+\+\_\+))
+\item 
+\mbox{\hyperlink{namespacetest__real_ac94250d200e791b6c0725d396cb3f544}{test\+\_\+real.\+config}} = yaml.\+load(ymlfile, Loader=yaml.\+Full\+Loader)
+\item 
+\mbox{\hyperlink{namespacetest__real_acb692d8ce4745f0647f16ce6658d6478}{test\+\_\+real.\+env}} = input(\textquotesingle{}Which environment are you running? \mbox{[}1 $\vert$ 2 $\vert$ l\mbox{]}\+:\textbackslash{}n\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacetest__real_a88c5d63b78a15ade1e38d97a616d1a9d}{test\+\_\+real.\+real\+\_\+ttb}} = rf.\+Real\+Ttb(config, path, output=(640, 640))
+\item 
+\mbox{\hyperlink{namespacetest__real_a2da2fc0f2628498251219f0a24d31eec}{test\+\_\+real.\+sub\+\_\+image}} = rospy.\+Subscriber(\textquotesingle{}/usb\+\_\+cam/compressed/image\+\_\+right\textquotesingle{}, Compressed\+Image, get\+Image, queue\+\_\+size=1)
+\item 
+string \mbox{\hyperlink{namespacetest__real_a1d741a0e84d16f37f04898a8d53ba964}{test\+\_\+real.\+path\+\_\+results}} = path + \textquotesingle{}/real\+\_\+results\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacetest__real_a63e1ebc93b80208cb75e63fbdcce2eb4}{test\+\_\+real.\+algorithms\+\_\+sel}} = np.\+array(\mbox{[}\textquotesingle{}1\textquotesingle{}, \textquotesingle{}2\textquotesingle{}, \textquotesingle{}3\textquotesingle{}, \textquotesingle{}e\textquotesingle{}, \textquotesingle{}r\textquotesingle{}\mbox{]})
+\item 
+string \mbox{\hyperlink{namespacetest__real_a24c1c25cfec2e7aab3c1846d10095649}{test\+\_\+real.\+algorithm}} = \char`\"{}\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacetest__real_abd0430cf6c429c63ad1f347d7d31c970}{test\+\_\+real.\+model}} = \textquotesingle{}2\textquotesingle{} else f\char`\"{}dqn\+\_\+st\{env.\+upper()\}\+\_\+model\+\_\+5k.\+pth\char`\"{}
+\item 
+string \mbox{\hyperlink{namespacetest__real_a180865f7be3686f62551c50e8cac6c72}{test\+\_\+real.\+model\+\_\+fn}} = f\char`\"{}\{path\}/\{model\}\char`\"{}
+\item 
+int \mbox{\hyperlink{namespacetest__real_ab3ee764c969af9dbdf9878010c94e742}{test\+\_\+real.\+action\+\_\+size}} = 5
+\item 
+int \mbox{\hyperlink{namespacetest__real_ae9b3bd7f7fac41656a6537ba2e42c692}{test\+\_\+real.\+observation\+\_\+space}} = 26
+\item 
+\mbox{\hyperlink{namespacetest__real_a820ae289c64e564d2b5c89568898c625}{test\+\_\+real.\+actor}} = Linear\+Deep\+QNetwork(0, action\+\_\+size, observation\+\_\+space)
+\item 
+dictionary \mbox{\hyperlink{namespacetest__real_afa6e6c412d88602c7a3132649ca3aec2}{test\+\_\+real.\+det}} = \{0\+: -\/1.\+5, 1\+: -\/0.\+75, 2\+: 0, 3\+: 0.\+75, 4\+: 1.\+5\}
+\item 
+int \mbox{\hyperlink{namespacetest__real_ad9c3e294ac12e94f16dfdd363d3b2215}{test\+\_\+real.\+local\+\_\+episode}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_a7d03d51131c279fa386ef3765414fdab}{test\+\_\+real.\+quit}} = input(\char`\"{}Press \mbox{[}Enter\mbox{]} to start the test or press \mbox{[}q\mbox{]} to quit...\char`\"{})
+\item 
+int \mbox{\hyperlink{namespacetest__real_a7100d4dee5166a96c9e47155461a8bfd}{test\+\_\+real.\+episode\+\_\+reward}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_ad670d9b04a94b9b7739de4ed606aabc6}{test\+\_\+real.\+lidar\+\_\+list}} = list()
+\item 
+int \mbox{\hyperlink{namespacetest__real_aea100a6ee742498934a623cd3590c52c}{test\+\_\+real.\+num\+\_\+steps}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_a3ffaac41b283620899bc8606a87373fb}{test\+\_\+real.\+ep\+\_\+start\+\_\+time}} = time.\+time()
+\item 
+bool \mbox{\hyperlink{namespacetest__real_a25e3357bff1550c67493c61d180f8420}{test\+\_\+real.\+done}} = False
+\item 
+\mbox{\hyperlink{namespacetest__real_ad7234206962b6ff8d2da889673ec8f8e}{test\+\_\+real.\+start}} = time.\+time()
+\item 
+\mbox{\hyperlink{namespacetest__real_a8d5bb5c7fd992b3b50cb0e4c30da6acd}{test\+\_\+real.\+val\+\_\+state}} = state
+\item 
+\mbox{\hyperlink{namespacetest__real_aa0d00542c37289082213fb0af7e55c88}{test\+\_\+real.\+actions}} = actor(state)
+\item 
+\mbox{\hyperlink{namespacetest__real_abfa2e189ee25cf5589e1d5ccaf2cf6ad}{test\+\_\+real.\+action}} = torch.\+argmax(actions).item()
+\item 
+\mbox{\hyperlink{namespacetest__real_a8573f82e3ae9a31c1b2e078f36ebdf65}{test\+\_\+real.\+vel\+\_\+cmd}} = Twist()
+\item 
+\mbox{\hyperlink{namespacetest__real_add2d2c32d6460f6ddb17f5faf85788e0}{test\+\_\+real.\+x}}
+\item 
+\mbox{\hyperlink{namespacetest__real_a1794251ff79303df80908a53a2e5324a}{test\+\_\+real.\+z}}
+\item 
+int \mbox{\hyperlink{namespacetest__real_ac5cb2b544a1df844e3ebbda1263f3fe9}{test\+\_\+real.\+reward}} = 0
+\item 
+\mbox{\hyperlink{namespacetest__real_a76479d8428aa4de1b09dd420999164a8}{test\+\_\+real.\+scan}} = val\+\_\+state\mbox{[}0\+:24\mbox{]}
+\item 
+\mbox{\hyperlink{namespacetest__real_a77f32caecc2dc822ecfb0ac92f3b9d05}{test\+\_\+real.\+fps}} = round(1 / (time.\+time() -\/ start))
+\item 
+\mbox{\hyperlink{namespacetest__real_ab88610bc26f036d551f19e474fecca6e}{test\+\_\+real.\+episode\+\_\+timing}} = time.\+time() -\/ ep\+\_\+start\+\_\+time
+\item 
+list \mbox{\hyperlink{namespacetest__real_a0b5c83f45a38d0313181d7182c608664}{test\+\_\+real.\+values}} = \mbox{[}episode\+\_\+reward, episode\+\_\+timing, local\+\_\+episode, num\+\_\+steps, real\+\_\+ttb.\+pts, lidar\+\_\+list\mbox{]}
+\end{DoxyCompactItemize}
