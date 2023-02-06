@@ -6,25 +6,30 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
 import numpy as np
-import time
-frame = None
-bridge = CvBridge()
-
 
 def nothing(x):
     pass
 
 
-def image_callback(msg):
-    print('PASSOU AQUI')
-    global frame
-    frame = bridge.compressed_imgmsg_to_cv2(msg)
-    print(frame)
+class TestLocal:
+    def __init__(self):
+        self.bridge = CvBridge()
+        self.image = None
+        self.defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 180 80
+        rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage,  self.image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
+
+    def image_callback(self, msg):
+        self.image = self.bridge.compressed_imgmsg_to_cv2(msg)
+
+    def step(self):
+        if self.image is None:
+            return False, None
+        frame = self.defisheye.convert(self.image)
+        cv2.imshow('Frame', frame)
+        return True, frame
 
 
-# Load image
-defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)
-rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage, image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
+test_local = TestLocal()
 
 # Create a window
 cv2.namedWindow('image')
@@ -48,38 +53,39 @@ hMin = sMin = vMin = hMax = sMax = vMax = 0
 phMin = psMin = pvMin = phMax = psMax = pvMax = 0
 
 while True:
-    if frame:
-        image = defisheye.convert(frame)
+    val, image = test_local.step()
+    if not val:
+        continue
 
-        # Get current positions of all trackbars
-        hMin = cv2.getTrackbarPos('HMin', 'image')
-        sMin = cv2.getTrackbarPos('SMin', 'image')
-        vMin = cv2.getTrackbarPos('VMin', 'image')
-        hMax = cv2.getTrackbarPos('HMax', 'image')
-        sMax = cv2.getTrackbarPos('SMax', 'image')
-        vMax = cv2.getTrackbarPos('VMax', 'image')
+    # Get current positions of all trackbars
+    hMin = cv2.getTrackbarPos('HMin', 'image')
+    sMin = cv2.getTrackbarPos('SMin', 'image')
+    vMin = cv2.getTrackbarPos('VMin', 'image')
+    hMax = cv2.getTrackbarPos('HMax', 'image')
+    sMax = cv2.getTrackbarPos('SMax', 'image')
+    vMax = cv2.getTrackbarPos('VMax', 'image')
 
-        # Set minimum and maximum HSV values to display
-        lower = np.array([hMin, sMin, vMin])
-        upper = np.array([hMax, sMax, vMax])
+    # Set minimum and maximum HSV values to display
+    lower = np.array([hMin, sMin, vMin])
+    upper = np.array([hMax, sMax, vMax])
 
-        # Convert to HSV format and color threshold
-        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-        mask = cv2.inRange(hsv, lower, upper)
-        result = cv2.bitwise_and(image, image, mask=mask)
+    # Convert to HSV format and color threshold
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    mask = cv2.inRange(hsv, lower, upper)
+    result = cv2.bitwise_and(image, image, mask=mask)
 
-        # Print if there is a change in HSV value
-        if (phMin != hMin) | (psMin != sMin) | (pvMin != vMin) | (phMax != hMax) | (psMax != sMax) | (pvMax != vMax):
-            print("(hMin = %d , sMin = %d, vMin = %d), (hMax = %d , sMax = %d, vMax = %d)" % (hMin, sMin, vMin, hMax, sMax, vMax))
-            phMin = hMin
-            psMin = sMin
-            pvMin = vMin
-            phMax = hMax
-            psMax = sMax
-            pvMax = vMax
+    # Print if there is a change in HSV value
+    if (phMin != hMin) | (psMin != sMin) | (pvMin != vMin) | (phMax != hMax) | (psMax != sMax) | (pvMax != vMax):
+        print("(hMin = %d , sMin = %d, vMin = %d), (hMax = %d , sMax = %d, vMax = %d)" % (hMin, sMin, vMin, hMax, sMax, vMax))
+        phMin = hMin
+        psMin = sMin
+        pvMin = vMin
+        phMax = hMax
+        psMax = sMax
+        pvMax = vMax
 
-        # Display result image
-        cv2.imshow('image', result)
+    # Display result image
+    cv2.imshow('image', result)
     c = cv2.waitKey(1)
     if c & 0xFF == ord('q'):
         break
