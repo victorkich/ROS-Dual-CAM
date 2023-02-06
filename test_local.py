@@ -41,9 +41,9 @@ class TestLocal:
         # frame = self.image_right
         # frame = frame[round(size[0]*0.1):round(size[0]*0.9), round(size[1]*0.28):round(size[1]*0.68)]
         # frame = frame[round(size[0]*0.1):round(size[0]*0.8), round(size[1]*0.1):round(size[1]*0.6)]
-        lidar = np.zeros(24)
-        angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
-        print('Angle:', angle, 'Distance:', distance)
+        # lidar = np.zeros(24)
+        # angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
+        # print('Angle:', angle, 'Distance:', distance)
         cv2.imshow('Frame', frame)
         return True
 
