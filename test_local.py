@@ -53,7 +53,7 @@ class TestLocal:
         #print('Status:', status)
         #if status:
         #    print('Output frame:', frame.shape)
-        frame = self.image_left
+        frame = self.image_right
         cv2.imshow('Frame', frame)
         return True
 
