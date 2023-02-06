@@ -19,8 +19,8 @@ class TestLocal:
         self.stitcher = Stitcher()
         self.image_right = None
         self.image_left = None
-        self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=100, pfov=80)  # 140 110
-        self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=120, pfov=60)  # 180 80
+        self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=140, pfov=110)  # 140 110
+        self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 180 80
         rospy.Subscriber('/camera_right/image_raw/compressed', CompressedImage,  self.image_right_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
         rospy.Subscriber('/camera_left/image_raw/compressed', CompressedImage, self.image_left_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
@@ -35,11 +35,11 @@ class TestLocal:
     def step(self):
         if self.image_right is None or self.image_left is None:
             return False
-        # frame = self.stitcher.stitch([self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)])
+        frame = self.stitcher.stitch([self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)])
         # frame = [self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)]
-        size = self.image_right.shape
-        frame = self.image_right
-        frame = frame[round(size[0]*0.1):round(size[0]*0.9), round(size[1]*0.28):round(size[1]*0.68)]
+        # size = self.image_right.shape
+        # frame = self.image_right
+        # frame = frame[round(size[0]*0.1):round(size[0]*0.9), round(size[1]*0.28):round(size[1]*0.68)]
         # frame = frame[round(size[0]*0.1):round(size[0]*0.8), round(size[1]*0.1):round(size[1]*0.6)]
         lidar = np.zeros(24)
         angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
