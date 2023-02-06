@@ -33,7 +33,7 @@ class TestLocal:
     #    self.image_left = self.bridge.compressed_imgmsg_to_cv2(msg)
 
     def step(self):
-        if self.image_right is None or self.image_left is None:
+        if self.image_right is None:
             return False, None
         # defish_left = self.defisheye1.convert(self.image_left)
         # defish_right = self.defisheye2.convert(self.image_right)
