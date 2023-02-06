@@ -15,7 +15,7 @@ def nothing(x):
 
 def image_callback(msg):
     global frame
-    image = bridge.compressed_imgmsg_to_cv2(msg)
+    frame = bridge.compressed_imgmsg_to_cv2(msg)
 
 
 # Load image
@@ -23,7 +23,7 @@ defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 1
 rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage, image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
 # Create a window
-cv2.namedWindow('HSV Calibration')
+cv2.namedWindow('image')
 
 # Create trackbars for color change
 # Hue is from 0-179 for Opencv
