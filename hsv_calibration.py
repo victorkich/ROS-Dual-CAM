@@ -16,7 +16,7 @@ class TestLocal:
     def __init__(self):
         self.bridge = CvBridge()
         self.image = None
-        self.defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 140 110
+        self.defisheye = Defisheye(dtype='linear', format='fullframe', fov=140, pfov=110)  # 140 110
         rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage,  self.image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
     def image_callback(self, msg):
@@ -88,7 +88,7 @@ while key != ord('q'):
 
     # Display result image
     h_img = cv2.hconcat([image, result])
-    cv2.imshow('image', result)
+    cv2.imshow('image', h_img)
     key = cv2.waitKey(1)
 
 cv2.destroyAllWindows()
