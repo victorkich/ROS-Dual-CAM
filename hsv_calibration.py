@@ -16,6 +16,7 @@ def nothing(x):
 def image_callback(msg):
     global frame
     frame = bridge.compressed_imgmsg_to_cv2(msg)
+    print(frame)
 
 
 # Load image
