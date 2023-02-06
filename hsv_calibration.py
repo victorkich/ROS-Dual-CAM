@@ -20,7 +20,7 @@ def image_callback(msg):
 
 # Load image
 defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 180 80
-rospy.Subscriber('/camera_right/image_raw/compressed', CompressedImage, image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
+rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage, image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
 # Create a window
 cv2.namedWindow('HSV Calibration')
