@@ -43,7 +43,7 @@ cv2.setTrackbarPos('VMax', 'image', 255)
 hMin = sMin = vMin = hMax = sMax = vMax = 0
 phMin = psMin = pvMin = phMax = psMax = pvMax = 0
 
-time.sleep(1)
+time.sleep(5)
 while True:
     image = defisheye.convert(frame)
     # Get current positions of all trackbars
