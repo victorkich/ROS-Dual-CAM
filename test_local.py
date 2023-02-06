@@ -5,7 +5,7 @@ import cv2
 from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
-from utils.panorama import Stitcher
+# from utils.panorama import Stitcher
 from utils import range_finder as rf
 import numpy as np
 import time
@@ -16,7 +16,8 @@ import yaml
 class TestLocal:
     def __init__(self):
         self.bridge = CvBridge()
-        self.stitcher = Stitcher()
+        # self.stitcher = Stitcher()
+        self.stitcher = cv2.Stitcher_create()
         self.image_right = None
         self.image_left = None
         self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=140, pfov=110)  # 140 110
@@ -37,7 +38,8 @@ class TestLocal:
             return False
         defish_left = self.defisheye1.convert(self.image_left)
         defish_right = self.defisheye2.convert(self.image_right)
-        frame = self.stitcher.stitch([defish_left, defish_right])
+        # frame = self.stitcher.stitch([defish_left, defish_right])
+        (status, frame) = self.stitcher.stitch([defish_left, defish_right])
         # frame = [self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)]
         # size = self.image_right.shape
         # frame = self.image_right
