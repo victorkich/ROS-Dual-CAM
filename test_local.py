@@ -50,6 +50,9 @@ class TestLocal:
         # print('Angle:', angle, 'Distance:', distance)
         # frame = self.defisheye1.convert(self.image_left)
         print('Frame 1 shape:', defish_left.shape, 'Frame 2 shape:', defish_right.shape)
+        print('Status:', status)
+        if status:
+            print('Output frame:', frame.shape)
         cv2.imshow('Frame', frame)
         return True
 
