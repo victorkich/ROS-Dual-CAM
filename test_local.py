@@ -59,8 +59,10 @@ with open(path + '/config.yml', 'r') as ymlfile:
 
 
 # Recording settings
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (720, 720))
+RECORD = False
+if RECORD:
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (720, 720))
 
 real_ttb = rf.RealTtb(config, path, output=(720, 720))
 rospy.init_node('test_local')
@@ -71,12 +73,14 @@ while key != ord('q'):
     val, frame = test_local.step()
     if not val:
         continue
-    out.write(frame)
+    if RECORD:
+        out.write(frame)
     key = cv2.waitKey(1)
     time.sleep(1/70)
     fps = round(1 / (time.time() - start), 1)
     print('\rFPS:', fps)
 
 print("[INFO] cleaning up...")
-out.release()
+if RECORD:
+    out.release()
 cv2.destroyAllWindows()
