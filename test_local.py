@@ -35,7 +35,7 @@ class TestLocal:
     def step(self):
         if self.image_right is None or self.image_left is None:
             return False
-        frame = self.stitcher.stitch([self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)])
+        # frame = self.stitcher.stitch([self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)])
         # frame = [self.defisheye1.convert(self.image_left), self.defisheye2.convert(self.image_right)]
         # size = self.image_right.shape
         # frame = self.image_right
@@ -44,6 +44,7 @@ class TestLocal:
         # lidar = np.zeros(24)
         # angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
         # print('Angle:', angle, 'Distance:', distance)
+        frame = self.image_left
         cv2.imshow('Frame', frame)
         return True
 
