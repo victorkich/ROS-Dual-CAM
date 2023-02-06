@@ -25,7 +25,6 @@ class TestLocal:
         if self.image is None:
             return False, None
         frame = self.defisheye.convert(self.image)
-        cv2.imshow('Frame', frame)
         return True, frame
 
 
