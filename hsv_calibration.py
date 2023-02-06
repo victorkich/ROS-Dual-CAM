@@ -51,7 +51,9 @@ cv2.setTrackbarPos('VMax', 'image', 255)
 hMin = sMin = vMin = hMax = sMax = vMax = 0
 phMin = psMin = pvMin = phMax = psMax = pvMax = 0
 
-while True:
+rospy.init_node('hsv_calibration')
+key = cv2.waitKey(1)
+while key != ord('q'):
     val, image = test_local.step()
     if not val:
         continue
@@ -85,8 +87,6 @@ while True:
 
     # Display result image
     cv2.imshow('image', result)
-    c = cv2.waitKey(1)
-    if c & 0xFF == ord('q'):
-        break
+    key = cv2.waitKey(1)
 
 cv2.destroyAllWindows()
