@@ -44,7 +44,7 @@ class TestLocal:
         # lidar = np.zeros(24)
         # angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
         # print('Angle:', angle, 'Distance:', distance)
-        frame = self.image_left
+        frame = self.defisheye1.convert(self.image_left)
         cv2.imshow('Frame', frame)
         return True
 
