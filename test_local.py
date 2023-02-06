@@ -59,7 +59,7 @@ with open(path + '/config.yml', 'r') as ymlfile:
 
 
 # Recording settings
-fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (720, 720))
 
 real_ttb = rf.RealTtb(config, path, output=(720, 720))
