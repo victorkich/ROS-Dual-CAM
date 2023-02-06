@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 
 import rospy
+import cv2
 from cv_bridge import CvBridge
 from sensor_msgs.msg import CompressedImage
 from utils.defisheye import Defisheye
-import cv2
 import numpy as np
 import time
 frame = None
