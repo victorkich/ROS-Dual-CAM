@@ -57,7 +57,6 @@ path = os.path.dirname(os.path.abspath(__file__))
 with open(path + '/config.yml', 'r') as ymlfile:
     config = yaml.load(ymlfile, Loader=yaml.FullLoader)
 
-
 # Recording settings
 RECORD = False
 if RECORD:
