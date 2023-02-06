@@ -16,14 +16,14 @@ def nothing(x):
 
 
 def image_callback(msg):
-    global frame
     print('PASSOU AQUI')
+    global frame
     frame = bridge.compressed_imgmsg_to_cv2(msg)
     print(frame)
 
 
 # Load image
-defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 180 80
+defisheye = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)
 rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage, image_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
 # Create a window
