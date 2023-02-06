@@ -59,9 +59,6 @@ with open(path + '/config.yml', 'r') as ymlfile:
 
 
 # Recording settings
-cap = cv2.VideoCapture(0)
-cap.set(3, 720)
-cap.set(4, 720)
 fourcc = cv2.VideoWriter_fourcc(*'MP4V')
 out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (720, 720))
 
@@ -81,6 +78,5 @@ while key != ord('q'):
     print('\rFPS:', fps)
 
 print("[INFO] cleaning up...")
-cap.release()
 out.release()
 cv2.destroyAllWindows()
