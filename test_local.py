@@ -18,9 +18,9 @@ class TestLocal:
         # self.stitcher = Stitcher()
         self.stitcher = cv2.Stitcher_create()
         self.image_right = None
-        self.image_left = None
+        # self.image_left = None
         # self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=140, pfov=110)  # 140 110
-        self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=180, pfov=80)  # 180 80
+        self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=155, pfov=110)  # 180 80
         rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage,  self.image_right_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
         # rospy.Subscriber('/camera_left/image_raw/compressed', CompressedImage, self.image_left_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
