@@ -48,7 +48,6 @@ class TestLocal:
         lidar = np.zeros(24)
         angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
         print('Angle:', angle, 'Distance:', distance)
-        cv2.imshow('Frame', frame)
         return True, frame
 
 
@@ -74,6 +73,8 @@ while key != ord('q'):
         continue
     if RECORD:
         out.write(frame)
+
+    cv2.imshow('Frame', frame)
     key = cv2.waitKey(1)
     time.sleep(1/70)
     fps = round(1 / (time.time() - start), 1)
