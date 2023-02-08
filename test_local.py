@@ -16,7 +16,7 @@ class TestLocal:
     def __init__(self):
         self.bridge = CvBridge()
         # self.stitcher = Stitcher()
-        self.stitcher = cv2.Stitcher_create()
+        # self.stitcher = cv2.Stitcher_create()
         self.image_right = None
         # self.image_left = None
         # self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=140, pfov=110)  # 140 110
@@ -45,7 +45,7 @@ class TestLocal:
         # frame = frame[round(size[0]*0.1):round(size[0]*0.9), round(size[1]*0.28):round(size[1]*0.68)]
         # frame = frame[round(size[0]*0.1):round(size[0]*0.8), round(size[1]*0.1):round(size[1]*0.6)]
         frame = self.defisheye2.convert(self.image_right)
-        lidar = np.zeros(24)
+        lidar = np.ones(24)
         angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
         print('Angle:', angle, 'Distance:', distance)
         return True, frame
