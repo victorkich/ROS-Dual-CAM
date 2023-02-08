@@ -21,12 +21,12 @@ class TestLocal:
         # self.image_left = None
         # self.defisheye1 = Defisheye(dtype='linear', format='fullframe', fov=140, pfov=110)  # 140 110
         self.defisheye2 = Defisheye(dtype='linear', format='fullframe', fov=155, pfov=110)  # 180 80
-        rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage,  self.image_right_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
+        rospy.Subscriber('/camera_2/image_raw/compressed', CompressedImage,  self.image_right_callback, tcp_nodelay=True, queue_size=1)
         # rospy.Subscriber('/camera_left/image_raw/compressed', CompressedImage, self.image_left_callback, tcp_nodelay=True, queue_size=1, buff_size=2**26)
 
     def image_right_callback(self, msg):
         # self.image_right = self.defisheye1.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
-        self.image_right = self.bridge.compressed_imgmsg_to_cv2(msg)
+        self.image_right = self.defisheye2.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
 
     # def image_left_callback(self, msg):
     #    # self.image_left = self.defisheye2.convert(self.bridge.compressed_imgmsg_to_cv2(msg))
@@ -44,9 +44,8 @@ class TestLocal:
         # frame = self.image_right
         # frame = frame[round(size[0]*0.1):round(size[0]*0.9), round(size[1]*0.28):round(size[1]*0.68)]
         # frame = frame[round(size[0]*0.1):round(size[0]*0.8), round(size[1]*0.1):round(size[1]*0.6)]
-        frame = self.defisheye2.convert(self.image_right)
         lidar = np.ones(24)
-        angle, distance, frame = real_ttb.get_angle_distance(frame, lidar, green_magnitude=1.0)
+        angle, distance, frame = real_ttb.get_angle_distance(self.image_right, lidar, green_magnitude=1.0)
         print('Angle:', angle, 'Distance:', distance)
         return True, frame
 
